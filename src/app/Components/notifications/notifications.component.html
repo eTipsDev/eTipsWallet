@@ -1,0 +1,64 @@
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+  
+    <!-- Notification Settings -->
+    <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+      <app-header></app-header>
+
+      <h3 class="text-lg font-semibold mb-4">Notifications settings</h3>
+  
+      <!-- Push Notifications -->
+      <div class="flex items-start mb-6">
+        <input type="checkbox" id="push-notifications" class="h-5 w-5 mt-1 text-teal-600 border-gray-300 rounded">
+        <div class="ml-3">
+          <label for="push-notifications" class="text-sm font-medium text-gray-900">Enable Push Notifications</label>
+          <p class="text-sm text-gray-500">Stay updated with instant notifications about new tips, payouts, and account activity.</p>
+        </div>
+      </div>
+  
+      <!-- In-App Notifications -->
+      <div class="flex items-start mb-6">
+        <input type="checkbox" id="in-app-notifications" class="h-5 w-5 mt-1 text-teal-600 border-gray-300 rounded">
+        <div class="ml-3">
+          <label for="in-app-notifications" class="text-sm font-medium text-gray-900">Show In-App Notifications</label>
+          <p class="text-sm text-gray-500">Get real-time alerts for new tips, feedback, and important updates while using the app.</p>
+        </div>
+      </div>
+  
+      <!-- Email Notifications -->
+      <div class="flex items-start mb-6">
+        <input type="checkbox" id="email-notifications" class="h-5 w-5 mt-1 text-teal-600 border-gray-300 rounded">
+        <div class="ml-3">
+          <label for="email-notifications" class="text-sm font-medium text-gray-900">Enable Email Notifications</label>
+          <p class="text-sm text-gray-500">Receive email alerts for new tips, payment confirmations, and account updates.</p>
+        </div>
+      </div>
+  
+      <div class="flex items-start mb-6">
+        <input type="checkbox" id="payment-notifications" class="h-5 w-5 mt-1 text-teal-600 border-gray-300 rounded">
+        <div class="ml-3">
+          <label for="payment-notifications" class="text-sm font-medium text-gray-900">Receive Payment Notifications</label>
+          <p class="text-sm text-gray-500">Receive email alerts for new tips, payment confirmations, and account updates.</p>
+        </div>
+      </div>
+  
+      <div class="flex items-start mb-6">
+        <input type="checkbox" id="feedback-notifications" class="h-5 w-5 mt-1 text-teal-600 border-gray-300 rounded" disabled>
+        <div class="ml-3">
+          <label for="feedback-notifications" class="text-sm font-medium text-gray-400">Receive Feedback Notifications</label>
+          <p class="text-sm text-gray-400">Get alerts when customers leave feedback or ratings.</p>
+        </div>
+      </div>
+  
+      <div class="
+      flex items-start mb-6">
+        <input type="checkbox" id="weekly-summary" class="h-5 w-5 mt-1 text-teal-600 border-gray-300 rounded" disabled>
+        <div class="ml-3">
+          <label for="weekly-summary" class="text-sm font-medium text-gray-400">Weekly Tip Summary</label>
+          <p class="text-sm text-gray-400">Receive a summary of your tips and earnings every week.</p>
+        </div>
+      </div>
+  
+      <button class="w-full bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-teal-700 transition">Save</button>
+      <button class="mt-4 w-full text-gray-500 py-2 px-4 hover:underline">Cancel</button>
+    </div>
+  </div>

@@ -1,0 +1,88 @@
+main{
+    padding: 0;
+    /* background-image: url('/assets/images/image.png'); */
+    background-position: top;
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+}
+
+.holder{
+    gap: 30px; 
+    padding: 0px;
+}
+
+.content{
+    position: absolute;
+    height: auto;
+    /* background-color: #8000FF; */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    bottom: 0;
+    /* padding: 10px 50px;
+    padding-bottom: 20%; */
+}
+
+@media only screen and (max-width:700px){
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+
+    .icon{
+        height: 80px;
+    }
+
+    .title{
+        font-size: 28px; 
+        font-weight: 500; 
+        line-height: 28px; 
+        text-align: center; 
+        display: flex; 
+        align-items: center; 
+        letter-spacing: 0em;
+        color: black;
+    }
+
+    .message{
+        font-family: Montserrat; 
+    
+        font-weight: normal; 
+        /* line-height: 24px; */
+         text-align: center;
+          display: flex; 
+          align-items: center; 
+          letter-spacing: 0.5px; 
+          font-variation-settings: "opsz" auto; 
+          color: #4B5563;
+          font-size: 16px;
+    }
+
+    button{
+        border-radius: 10px;
+        background: #FFA500;
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        outline: none;
+        border: none;
+        color: white;
+          
+    }
+
+    .btn-2{
+        background: white;
+        border: 1px solid #8000FF;
+        font-size: 14px;
+        color: rgb(0, 0, 0);   
+    }
+
+    .btn-2:nth-child(8){
+        background: white;
+        border: 1px solid #ffffff;
+        font-size: 14px;
+        color: rgb(0, 0, 0);   
+    }
+}

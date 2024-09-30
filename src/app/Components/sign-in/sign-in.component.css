@@ -1,0 +1,243 @@
+
+
+.headings{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    padding: 5px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.headings .lines{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    
+}
+
+.headings label{
+    text-wrap:nowrap;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.message{
+    font-family: Montserrat; 
+
+    font-weight: normal; 
+    /* line-height: 24px; */
+     text-align: center;
+      display: flex; 
+      align-items: center; 
+      letter-spacing: 0.5px; 
+      font-variation-settings: "opsz" auto; 
+      color: #4B5563;
+      /* font-size: 20px; */
+}
+
+
+@media only screen and (max-width:700px){
+
+    .img-holder{
+        /* background-color: red; */
+        padding: 8% 0px;
+    }
+
+    .icon{
+        height: 80px;
+        margin-bottom: 5%;
+    }
+
+    .title{
+        font-size: 28px; 
+        font-weight: 500; 
+        line-height: 28px; 
+        text-align: center; 
+        display: flex; 
+        align-items: center; 
+        letter-spacing: 0em;
+        color: black;
+    }
+
+    .btn-holder{
+        display: flex;
+        gap: 5px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    button{
+        border-radius: 5px;
+        width: 100%;
+        padding: 10px 2px;
+        
+        font-size: 18px;
+        outline: none;
+        border: none;
+        color: white;
+          
+    }
+
+    .top-hed{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        padding: 10% 0%;
+        padding-top: 0;
+        /* height: 10%; */
+    }
+
+    .btn-1s{
+        background: var(--primary-color);
+        font-size: 13px;
+        color: rgb(255, 255, 255);  
+        border: 0.5px solid #1C1C1C;
+        
+    }
+
+
+    .btn-2, .btn-1{
+        background-color: transparent;
+        border: 0.5px solid #1C1C1C;
+        font-size: 13px;
+        color: #1C1C1C;  
+        padding: 10px 2px;
+    }
+
+    form, .form-item{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px; 
+        padding: 0px 0px;
+    }
+
+    form .form-item{
+        padding: 0px 0px;
+    }
+
+    .input-div{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .input-div label{
+        font-size: small;
+    }
+
+    .input-div input{
+        padding: 2px 10px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 0.5px solid #1C1C1C
+    }
+
+    .prog-indicators{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 10%;
+    }
+
+    .indicator{
+        height: 5px;
+        width: 15%;
+        border-radius: 5px;
+    }
+
+    .indicator-on{
+        background-color: #FFA500 ;
+    }
+    .indicator-off{
+        background-color: #D8D8D8;
+    }
+
+    label span{
+        color: var(--primary-color);
+    }
+
+    .checkbox{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+    }
+
+    .checkbox label{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        font-size: small;
+        align-items: center;
+    }
+
+    .checkbox input{
+        background-color: red;
+        height: 30px;
+        width: 30px;
+    }
+
+    .ver-holder{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .ver-holder input{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+main{
+    padding: 0;
+    /* background-image: url('/assets/images/image.png'); */
+    background-position: top;
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+}
+
+.holder{
+    gap: 30px; 
+    padding: 0px;
+}
+
+.content{
+    position: absolute;
+    height: auto;
+    /* background-color: #8000FF; */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    bottom: 0;
+    height: 100%;
+    justify-content: center;
+    /* padding: 10px 50px; */
+    /* padding-bottom: 20%; */
+}
+
+img{
+    /* margin: 10px 0; */
+}
+
+.text{
+    text-align: center;
+    font-size: small;
+}
+
+a{
+    color: var(--primary-color);
+    font-weight: bold;
+}

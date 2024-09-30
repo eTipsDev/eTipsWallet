@@ -1,0 +1,76 @@
+<main>
+  <div class="holder">
+
+      <div style=" position: fixed;" class="img-holder">
+      <img class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
+      </div>
+      
+      <div style="opacity: 0;" class="img-holder2">
+        <img class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
+        </div>
+       <div class="headings">
+                  <div class="lines"></div>
+              </div>
+
+              <app-header style="width: 100%;"></app-header>
+
+              <div *ngIf="!userData.idNumber" class="form-item no-data">
+                  <img src="../../../assets/images/dazzle-smartphone-with-financial-analytics-showing-income.gif"/>
+                  <div class="btn-holder">
+                    <button type="submit" routerLink="/kyc" class="btn-1">Start earning tips</button>
+                </div>
+            </div>
+  
+             
+          <div *ngIf="userData.idNumber" class="form-item">
+             
+              <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+                <div *ngIf="visible" style="position: absolute;" class="loader"></div>
+                  <canvas  height="180" id="myChart"></canvas>
+                </div>
+
+                <div style="display: flex; gap: 5px; align-items: center;">
+                  <h2 style="font-weight: bold;">30%</h2>
+                  <br>
+                  <p>Your tips have increased by 30%
+                      better compare to last month</p>
+                </div>
+
+                <div class="btn-holder">
+                  <button type="submit" class="btn-1">Details</button>
+              </div>
+          </div>
+
+          <div *ngIf="userData.idNumber" class="form-item form-img">
+
+
+              <!-- <img src="../../../assets/images/unsplash_-rF4kuvgHhU.png"/> -->
+
+                <div style="display: flex; gap: 5px; align-items: center;">
+                  <p>Sharing tips with your colleagues</p>
+                </div>
+
+                <div class="btn-holder">
+                  <button type="submit" class="btn-1">Readmore</button>
+              </div>
+          </div>
+
+          <div *ngIf="userData.idNumber" class="form-item">
+              <h5>Lethabo's Score</h5>
+
+              <!-- <img src="../../../assets/images/unsplash_-rF4kuvgHhU.png"/> -->
+
+              <h6>Need Approvement</h6>
+
+                <div style="display: flex; gap: 5px; align-items: center;">
+                  <p>Here are some tips on how to
+                    improve your rating score</p>
+                </div>
+
+                <div class="btn-holder">
+                  <button type="submit" class="btn-1">Details</button>
+              </div>
+          </div>
+
+      </div>
+</main>

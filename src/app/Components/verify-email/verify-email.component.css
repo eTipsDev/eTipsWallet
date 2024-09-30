@@ -1,0 +1,32 @@
+main{
+    padding: 0px 25px;
+    background-color: #F7F7F2;
+    justify-content: center;
+    gap: 15px;
+    /* background-image: url('/assets/images/image.png'); */
+}
+
+h1{
+    text-align: center;
+}
+
+button{
+    border-radius: 10px;
+    background: var(--primary-color);
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    color: white;
+      
+}
+
+.img-holder{
+    /* background-color: red; */
+    padding: 2% 0px;
+}
+
+.icon{
+    height: 60px;
+}

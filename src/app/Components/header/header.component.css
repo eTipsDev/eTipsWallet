@@ -1,0 +1,15 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.small-icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0px;
+  }
+
+  .small-icons label{
+    font-size: x-small;
+  }

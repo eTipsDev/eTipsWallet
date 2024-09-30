@@ -1,0 +1,57 @@
+<main>
+    <div class="holder">
+
+        <div style=" position: fixed;" class="img-holder">
+            <img routerLink="/dashboard" class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
+            </div>
+            <div style="opacity: 0;" class="img-holder2">
+              <img  routerLink="/dashboard" class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
+              </div>
+             <div class="headings">
+                        <div class="lines-ii"></div>
+                    </div>
+    
+                    <app-header style="width: 100%;"></app-header>
+        
+
+                <div class="ite">
+                    <div  *ngIf="!blGenerate"  class="headings">
+                        <div class="lines"></div>
+                        <label>QR Code</label>
+                        <div class="lines"></div>
+                    </div>
+
+                    <div  *ngIf="!blGenerate"  class="input-div">
+                        <p>Qr Code unavailable</p>
+                    </div>
+
+
+                    <div *ngIf="!blGenerate" class="input-div">
+                        <p>Generate a QR code to begin receiving tips</p>
+                    </div>
+                    <div *ngIf="visible" style="position: absolute;" class="loader"></div>
+                </div>
+
+                <div *ngIf="!blGenerate" class="btn-holder">
+                    <button (click)="GenerateQRCode()" class="btn-1">Generate QR</button>
+                </div>
+
+                <div  *ngIf="blGenerate" class="form-item">
+                    <div class="headings">
+                        <div class="lines"></div>
+                        <label>QR Code</label>
+                        <div class="lines"></div>
+                    </div>
+
+                    <div class="input-div">
+                        <div class="qr-sha">
+                            <qrcode (qrCodeURL)="onChangeURL($event)" [qrdata]="this.shareableLink" [width]="width" [errorCorrectionLevel]="'M'"></qrcode>
+                            <a class="download-link" [href]="qrCodeDownloadLink" download="qrcode">Download</a>
+                        </div>
+                    </div>
+
+                </div>
+          
+
+        </div>
+</main>

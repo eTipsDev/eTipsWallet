@@ -1,0 +1,66 @@
+<main>
+    <div class="holder">
+
+        <img src="/assets/images/image.png"/>
+        <div class="content">
+            
+          <div class="top-hed">
+
+            <img class="icon" src="/assets/images/etips_logo_samples-06 1.svg"/>
+
+            <p class="message">
+                Innovative digital tipping product 
+                serving the needs of the service 
+                industry workers
+            </p>
+              
+  
+            </div>
+
+<form #userForm="ngForm" (ngSubmit)="Login(userForm)">
+    <div class="form-item">
+        <div class="input-div">
+            <label for="">Email*</label>
+            <input input autofocus id="email" name="email" [(ngModel)]="LoginDetails.email" placeholder="Enter Email" #email="ngModel" minlength="4" appForbiddenName="etips" required email/>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="errors">email is required.</div>
+                
+                  <!-- <div class="errors" *ngIf="email.hasError('minlength')">
+                    minimum length is 4.
+                  </div> -->
+                  <!-- <div class="errors" *ngIf="email.hasError('forbiddenName')">
+                    email cannot contain funa.
+                  </div> -->
+        </div>
+
+        <div class="input-div">
+            <label for="">Password*</label>
+            <input [(ngModel)]="LoginDetails.password" #password="ngModel" id="password" type="password" name="password" placeholder="Enter Password"  minlength="4" appForbiddenName="etips" required/>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errors">password is required.</div>
+                
+                  <div class="errors" *ngIf="password.hasError('minlength')">
+                    minimum length is 4.
+                  </div>
+                  <div class="errors" *ngIf="password.hasError('forbiddenName')">
+                    password cannot be funa.
+                  </div>
+        </div>
+
+    </div>
+ <button class="btn-1s">Sign in</button>
+
+ <label class="text">Or sign in with</label>
+    <div class="btn-holder">
+        <button class="btn-2">Log in with google</button>
+        <button type="submit" class="btn-1">Login with linkedIn</button>
+    </div>
+
+    <label class="text">Don't have an account? <a routerLink="/sign-up">Register here</a></label>
+
+</form>
+
+   
+    
+        </div>
+
+    </div>
+</main>
