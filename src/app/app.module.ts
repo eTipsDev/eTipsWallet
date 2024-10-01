@@ -27,6 +27,9 @@ import { KycUIComponent } from './Components/kyc-ui/kyc-ui.component';
 import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
 import { HttpClientModule } from '@angular/common/http';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideFirebaseApp(() => initializeApp({"projectId":"etipswallet-7442d","appId":"1:47042432896:web:afa97bf95282c7fa54fb65","databaseURL":"https://etipswallet-7442d-default-rtdb.firebaseio.com","storageBucket":"etipswallet-7442d.appspot.com","apiKey":"AIzaSyALp-aODp9Sw017MLkSuTHqrvTCVL2sOM0","authDomain":"etipswallet-7442d.firebaseapp.com","messagingSenderId":"47042432896","measurementId":"G-95VLWNWBGN"})),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase())
   ],
   bootstrap: [AppComponent]
 })

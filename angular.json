@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "etipsWallet": {
+    "etipswallet": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "etipsWallet:build:production"
+              "buildTarget": "etipswallet:build:production"
             },
             "development": {
-              "buildTarget": "etipsWallet:build:development"
+              "buildTarget": "etipswallet:build:development"
             }
           },
           "defaultConfiguration": "development"
