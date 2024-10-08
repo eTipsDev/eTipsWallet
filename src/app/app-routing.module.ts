@@ -18,8 +18,8 @@ import { WithdrawUIComponent } from './Components/withdraw-ui/withdraw-ui.compon
 
 const routes: Routes = [
   // {path:"welcome", component:WelcomeComponent},
-    // {path:"sign-up", component:SignUpComponent},
-    // {path:"sign-up/details", component:SignUpDetailsComponent},
+    {path:"sign-up", component:SignUpComponent},
+    {path:"sign-up/details", component:SignUpDetailsComponent},
     // {path:"kyc", component:KycUIComponent},
     // {path:"dashboard", component:DashboardComponent},
     {path:"sign-in", component:SignInComponent},
