@@ -23,7 +23,7 @@ const routes: Routes = [
     {path:"kyc", component:KycUIComponent},
     // {path:"dashboard", component:DashboardComponent},
     {path:"sign-in", component:SignInComponent},
-    {path:"qr-code", component:QrCodeComponent},
+    // {path:"qr-code", component:QrCodeComponent},
 
     // {path:"tips", component:TipsUIComponent},
     // {path:"withdraw", component:WithdrawUIComponent},
