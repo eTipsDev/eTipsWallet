@@ -17,31 +17,33 @@ export class SignInComponent {
 
   ){}
 
+  loading:boolean = false;
+
   LoginDetails = {
     email:"",
     password:""
   }
 
   Login(form: any){
-
     if (form.valid) {
+      this.loading = true;
         this.authentication.Login(this.LoginDetails.email, this.LoginDetails.password).then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
 
           if(user.emailVerified){
             // this.logListener.mLogin(true)
-            // this.loading = false
+            this.loading = false
             this.route.navigate(["/dashboard"]);
           }
           else{
             alert("Email not verified, please check your emails.")
-            // this.loading = false
+            this.loading = false
           }
 
         })
         .catch((error) => {
-          // this.loading = false
+          this.loading = false
           const errorCode = error.code;
           const errorMessage = error.message;
           // if(errorCode && errorMessage === "INVALID_LOGIN_CREDENTIALS"){

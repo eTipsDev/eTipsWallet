@@ -1,3 +1,7 @@
+<div *ngIf="loading" class="app-loader">
+  <app-loader></app-loader>
+</div>
+
 <main>
     <div class="holder">
 
@@ -30,8 +34,7 @@
                 <div class="input-div">
                     <label for="">Surname*</label>
                     <input disabled="true" [(ngModel)]="user_kyc!.lastName" #surname="ngModel" id="surname" type="text" name="surname"  minlength="4" appForbiddenName="etips" required placeholder="Enter surname"/>
-                    <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="errors">surname is required.</div>
-                
+                    <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="errors">surname is required.</div>            
                   <div class="errors" *ngIf="surname.hasError('minlength')">
                     minimum length is 4.
                   </div>
@@ -73,99 +76,175 @@
                 </div>
     
                 <div class="input-div">
-                    <label for="">Current Work Place*</label>
-                    <input [(ngModel)]="user_kyc!.work" #work="ngModel" id="work" type="text" name="work"  minlength="2" appForbiddenName="etips" required placeholder="Enter work place"/>
-                    <div *ngIf="work.invalid && (work.dirty || work.touched)" class="errors"> Current work place is required</div>
-                    <div class="errors" *ngIf="work.hasError('minlength')">
+                    <label for="">Street Address*</label>
+                    <input [(ngModel)]="user_kyc!.address.line1" #street_a="ngModel" id="street_a" type="text" name="street_a"  minlength="2" appForbiddenName="etips" required type="text" placeholder="Enter street address"/>
+                    <div *ngIf="street_a.invalid && (street_a.dirty || street_a.touched)" class="errors">Street address required.</div>
+                    <div class="errors" *ngIf="street_a.hasError('minlength')">
                         minimum length is 2.
                       </div>
-                
-                      <div class="errors" *ngIf="work.hasError('forbiddenName')">
-                        etips forbidden
-                      </div>
-                </div>
-
-                <div class="headings">
-                    <div class="lines"></div>
-                    <label>Personal Banking Details</label>
-                    <div class="lines"></div>
-                </div>
-    
-                <div class="input-div">
-                    <label for="">Name of bank*</label>
-                    <!-- <input type="text" placeholder="Select Bank"/> -->
-                     <select [(ngModel)]="user_kyc!.BankDetails.bank" #bank="ngModel" id="bank" type="text" name="bank">
-                        <option value="First National Bank">First National Bank</option>
-                        <option value="Capitec Bank">Capitec Bank</option>
-                        <option value="Standard Bank">Standard Bank</option>
-                        <option value="African Bank">African Bank</option>
-                        <option value="Tyme Bank">Tyme Bank</option>
-                     </select>
-                     <div *ngIf="bank.invalid && (bank.dirty || bank.touched)" class="errors">Please select is required.</div>
-
-            
-                      <div class="errors" *ngIf="bank.invalid && (bank.dirty || bank.touched)">
+                      <div class="errors" *ngIf="street_a.hasError('forbiddenName')">
                         etips forbidden
                         </div>
                 </div>
-    
+
                 <div class="input-div">
-                    <label for="">Account holder's name*</label>
-                    <input [(ngModel)]="user_kyc!.BankDetails.account_holder" #account="ngModel" id="account" type="text" name="account"  minlength="4" appForbiddenName="etips" required type="text" placeholder="Enter account holder"/>
-                    <div *ngIf="account.invalid && (account.dirty || account.touched)" class="errors">Account holder is required.</div>
-                    <div class="errors" *ngIf="account.hasError('minlength')">
-                        minimum length is 4.
-                      </div>
-                      <div class="errors" *ngIf="account.hasError('forbiddenName')">
-                        etips forbidden
-                        </div>
-                </div>
-    
-                <div class="input-div">
-                    <label for="">Account number*</label>
-                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.BankDetails.account_number" #account_num="ngModel" id="account_num" type="text" name="account_num"  minlength="5" appForbiddenName="etips" required type="text" placeholder="Enter account number"/>
-                    <div *ngIf="account_num.invalid && (account_num.dirty || account_num.touched)" class="errors">Account number is required.</div>
-                    <div class="errors" *ngIf="account_num.hasError('minlength')">
-                        minimum length is 5.
-                      </div>
-                      <div class="errors" *ngIf="account_num.hasError('forbiddenName')">
-                        etips forbidden
+                  <label for="">City*</label>
+                  <input [(ngModel)]="user_kyc!.address.city" #city="ngModel" id="city" type="text" name="city"  minlength="4" appForbiddenName="etips" required type="text" placeholder="Enter city e.g Johannesburg"/>
+                  <div *ngIf="city.invalid && (city.dirty || city.touched)" class="errors">City is required.</div>
+                  <div class="errors" *ngIf="city.hasError('minlength')">
+                      minimum length is 4.
                     </div>
-                </div>
-    
-                <div class="input-div">
-                    <label for="">Branch code*</label>
-                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.BankDetails.branch" #branch="ngModel" id="branch" type="text" name="branch" minlength="5" appForbiddenName="etips" required type="text" placeholder="Enter branch code"/>
-                    <div *ngIf="branch.invalid && (branch.dirty || branch.touched)" class="errors">Branch is required.</div>
-                    <div class="errors" *ngIf="branch.hasError('minlength')">
-                        minimum length is 10.
+                    <div class="errors" *ngIf="city.hasError('forbiddenName')">
+                      etips forbidden
                       </div>
-                      <div class="errors" *ngIf="branch.hasError('forbiddenName')">
-                        etips forbidden
-                      </div>
-                </div>
+              </div>
 
-                <div class="input-div">
 
-                    <label for="">Account type*</label>
-                    <div class="rb-holder">
-                        <div class="rb">
-                            <input  name="account_type" [(ngModel)]="user_kyc!.BankDetails.account_type" #account_type="ngModel" id="account_type" type="radio" class="btn-1" value="Savings">
-                            <label>Savings</label>
-                        </div>
-                        <div class="rb">
-                            <input name="account_type" [(ngModel)]="user_kyc!.BankDetails.account_type" #account_type="ngModel" id="account_type" type="radio" class="btn-1" value="Cheque">
-                            <label>Cheque</label>
-                        </div>
+              <div class="input-div">
+                <label for="">Province*</label>
+                <!-- <input type="text" placeholder="Select Bank"/> -->
+                 <select [(ngModel)]="user_kyc!.address.state" #province="ngModel" id="province" type="text" name="province">
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                  
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="North-West">North-West</option>
+                    <option value="Western Cape">Western Cape</option>
+                 </select>
+                 <div *ngIf="province.invalid && (province.dirty || province.touched)" class="errors">Please select province</div>
+                  <div class="errors" *ngIf="province.invalid && (province.dirty || province.touched)">
+                    etips forbidden
                     </div>
-                    <div *ngIf="account_type.invalid && (account_type.dirty || account_type.touched)" class="errors">Account type is required.</div>
-                      <div class="errors" *ngIf="account_type.hasError('forbiddenName')">
-                        etips forbidden 
-                        </div>
+            </div>
+
+
+              <div class="input-div">
+                <label for="">Postal code*</label>
+                <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.address.code" #code="ngModel" id="code" type="text" name="code"  minlength="2" appForbiddenName="etips" required type="text" placeholder="Enter postal code"/>
+                <div *ngIf="code.invalid && (code.dirty || code.touched)" class="errors">postal code is required.</div>
+                <div class="errors" *ngIf="code.hasError('minlength')">
+                    minimum length is 2.
+                  </div>
+                  <div class="errors" *ngIf="code.hasError('forbiddenName')">
+                    etips forbidden
                 </div>
             </div>
 
+            
+
+            <div class="input-div">
+                        <label for="">Country*</label>
+                        <!-- <input type="text" placeholder="Select Bank"/> -->
+                        <select [(ngModel)]="user_kyc!.address.country" #country="ngModel" id="country" type="text" name="country">
+                            <option value="South Africa">South Africa</option>
+                        </select>
+                        <div *ngIf="country.invalid && (country.dirty || country.touched)" class="errors">Please select country</div>
+                          <div class="errors" *ngIf="country.invalid && (country.dirty || country.touched)">
+                            etips forbidden
+                            </div>
+                    </div>
+
+                    <div class="input-div">
+                      <label for="">Current Work Place*</label>
+                      <input [(ngModel)]="user_kyc!.work" #work="ngModel" id="work" type="text" name="work"  minlength="2" appForbiddenName="etips" required placeholder="Enter work place"/>
+                      <div *ngIf="work.invalid && (work.dirty || work.touched)" class="errors"> Current work place is required</div>
+                      <div class="errors" *ngIf="work.hasError('minlength')">
+                          minimum length is 2.
+                        </div>
+                  
+                        <div class="errors" *ngIf="work.hasError('forbiddenName')">
+                          etips forbidden
+                        </div>
+                  </div>
+            </div>
+
             <div *ngIf="CurrentPage == 1" class="form-item">
+              <div class="headings">
+                  <div class="lines"></div>
+                  <label>Personal Banking Details</label>
+                  <div class="lines"></div>
+              </div>
+  
+              <div class="input-div">
+                  <label for="">Name of bank*</label>
+                  <!-- <input type="text" placeholder="Select Bank"/> -->
+                   <select [(ngModel)]="user_kyc!.BankDetails.bank" #bank="ngModel" id="bank" type="text" name="bank">
+                      <option value="First National Bank">First National Bank</option>
+                      <option value="Nedbank">Nedbank</option>
+                      <option value="Capitec Bank">Capitec Bank</option>
+                      <option value="Standard Bank">Standard Bank</option>
+                      <option value="African Bank">African Bank</option>
+                      <option value="Tyme Bank">Tyme Bank</option>
+                   </select>
+                   <div *ngIf="bank.invalid && (bank.dirty || bank.touched)" class="errors">Please select bank.</div>
+
+          
+                    <div class="errors" *ngIf="bank.invalid && (bank.dirty || bank.touched)">
+                      etips forbidden
+                      </div>
+              </div>
+  
+              <div class="input-div">
+                  <label for="">Account holder's name*</label>
+                  <input [(ngModel)]="user_kyc!.BankDetails.account_holder" #account="ngModel" id="account" type="text" name="account"  minlength="4" appForbiddenName="etips" required type="text" placeholder="Enter account holder"/>
+                  <div *ngIf="account.invalid && (account.dirty || account.touched)" class="errors">Account holder is required.</div>
+                  <div class="errors" *ngIf="account.hasError('minlength')">
+                      minimum length is 4.
+                    </div>
+                    <div class="errors" *ngIf="account.hasError('forbiddenName')">
+                      etips forbidden
+                      </div>
+              </div>
+  
+              <div class="input-div">
+                  <label for="">Account number*</label>
+                  <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.BankDetails.account_number" #account_num="ngModel" id="account_num" type="text" name="account_num"  minlength="5" appForbiddenName="etips" required type="text" placeholder="Enter account number"/>
+                  <div *ngIf="account_num.invalid && (account_num.dirty || account_num.touched)" class="errors">Account number is required.</div>
+                  <div class="errors" *ngIf="account_num.hasError('minlength')">
+                      minimum length is 5.
+                    </div>
+                    <div class="errors" *ngIf="account_num.hasError('forbiddenName')">
+                      etips forbidden
+                  </div>
+              </div>
+  
+              <div class="input-div">
+                  <label for="">Branch code*</label>
+                  <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.BankDetails.branch" #branch="ngModel" id="branch" type="text" name="branch" minlength="5" appForbiddenName="etips" required type="text" placeholder="Enter branch code"/>
+                  <div *ngIf="branch.invalid && (branch.dirty || branch.touched)" class="errors">Branch is required.</div>
+                  <div class="errors" *ngIf="branch.hasError('minlength')">
+                      minimum length is 3.
+                    </div>
+                    <div class="errors" *ngIf="branch.hasError('forbiddenName')">
+                      etips forbidden
+                    </div>
+              </div>
+
+              <div class="input-div">
+
+                  <label for="">Account type*</label>
+                  <div class="rb-holder">
+                      <div class="rb">
+                          <input  name="account_type" [(ngModel)]="user_kyc!.BankDetails.account_type" #account_type="ngModel" id="account_type" type="radio" class="btn-1" value="Savings">
+                          <label>Savings</label>
+                      </div>
+                      <div class="rb">
+                          <input name="account_type" [(ngModel)]="user_kyc!.BankDetails.account_type" #account_type="ngModel" id="account_type" type="radio" class="btn-1" value="Cheque">
+                          <label>Cheque</label>
+                      </div>
+                  </div>
+                  <div *ngIf="account_type.invalid && (account_type.dirty || account_type.touched)" class="errors">Account type is required.</div>
+                    <div class="errors" *ngIf="account_type.hasError('forbiddenName')">
+                      etips forbidden 
+                      </div>
+              </div>
+          </div>
+
+            <div *ngIf="CurrentPage == 2" class="form-item">
                 <div class="headings">
                     <div class="lines"></div>
                     <label>Additional verification</label>
@@ -192,13 +271,12 @@
                 <div class="input-div">
                     <label for="">Verifications will take upto 24 hours to be verified</label>
                 </div>
-    
             </div>
 
             <div class="btn-holder">
                 <button (click)="PreviousClick()" class="btn-2">Cancel</button>
-                <div  *ngIf="CurrentPage == 0" type="submit" (click)="NextClick(userForm)" class="btn-1">Next</div>
-                <button  *ngIf="CurrentPage == 1" type="submit" class="btn-1">Submit</button>
+                <div *ngIf="CurrentPage != 2" type="submit" (click)="NextClick(userForm)" class="btn-1 nxt">Next</div>
+                <button  *ngIf="CurrentPage == 2" type="submit" class="btn-1">Submit</button>
             </div>
 
         </form>
@@ -207,6 +285,7 @@
                 <br>
                 <div class="indicator {{CurrentPage >= 0 ? 'indicator-on' : 'indicator-off'}}"></div>
                 <div class="indicator {{CurrentPage >= 1 ? 'indicator-on' : 'indicator-off'}}"></div>
+                <div class="indicator {{CurrentPage >= 2 ? 'indicator-on' : 'indicator-off'}}"></div>
                 <!-- <div class="indicator {{CurrentPage >= 2 ? 'indicator-on' : 'indicator-off'}}"></div> -->
             </div>
 

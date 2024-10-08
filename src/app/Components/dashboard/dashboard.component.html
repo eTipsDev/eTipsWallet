@@ -1,3 +1,6 @@
+<div *ngIf="loading" class="app-loader">
+  <app-loader></app-loader>
+</div>
 <main>
   <div class="holder">
 
@@ -14,7 +17,7 @@
 
               <app-header style="width: 100%;"></app-header>
 
-              <div *ngIf="!userData.idNumber" class="form-item no-data">
+              <div *ngIf="!userData.kyc" class="form-item no-data">
                   <img src="../../../assets/images/dazzle-smartphone-with-financial-analytics-showing-income.gif"/>
                   <div class="btn-holder">
                     <button type="submit" routerLink="/kyc" class="btn-1">Start earning tips</button>
@@ -22,7 +25,7 @@
             </div>
   
              
-          <div *ngIf="userData.idNumber" class="form-item">
+          <div *ngIf="userData.kyc" class="form-item">
              
               <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
                 <div *ngIf="visible" style="position: absolute;" class="loader"></div>
@@ -41,7 +44,7 @@
               </div>
           </div>
 
-          <div *ngIf="userData.idNumber" class="form-item form-img">
+          <div *ngIf="userData.kyc" class="form-item form-img">
 
 
               <!-- <img src="../../../assets/images/unsplash_-rF4kuvgHhU.png"/> -->
@@ -55,7 +58,7 @@
               </div>
           </div>
 
-          <div *ngIf="userData.idNumber" class="form-item">
+          <div *ngIf="userData.kyc" class="form-item">
               <h5>Lethabo's Score</h5>
 
               <!-- <img src="../../../assets/images/unsplash_-rF4kuvgHhU.png"/> -->
@@ -66,7 +69,6 @@
                   <p>Here are some tips on how to
                     improve your rating score</p>
                 </div>
-
                 <div class="btn-holder">
                   <button type="submit" class="btn-1">Details</button>
               </div>

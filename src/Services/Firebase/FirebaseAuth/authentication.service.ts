@@ -33,15 +33,22 @@ export class AuthenticationService {
     .then(async (userCredential) => {
       // Signed up 
       const Newuser = userCredential.user;
-        await this.mSendVerificationEmail(Newuser);
+
+      await this.mSendVerificationEmail(Newuser);
+
       await set(ref(this.realtimeDB.GetRealtimeInstance(), 
       'users/' + userCredential.user.uid), user);
+
+      console.log("added");
+      
+      return 200;
         
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage)
+      return 400;
     });
   }
 

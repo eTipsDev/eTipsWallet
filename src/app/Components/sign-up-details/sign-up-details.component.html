@@ -1,11 +1,6 @@
-<app-loader *ngIf="loading" style="display: flex; 
-height: 100vh;
-width: 100%;
-justify-content: center;
-align-items: center;
-position: absolute; 
-z-index: 1000;
-"></app-loader>
+<div *ngIf="loading" class="app-loader">
+  <app-loader></app-loader>
+</div>
 
 <app-verify-email *ngIf="successful"
 style="position: absolute;
@@ -139,7 +134,7 @@ z-index: 999;
 
                 <div class="checkbox">
                     <input [(ngModel)]="user!.termsAndCon" #tandc="ngModel" id="tandc" name="tandc" type="checkbox" value="TAndC">
-                    <label for="">Agree to<span>Terms and Conditions</span></label>
+                    <label for="">Agree to<span><a href="https://www.ukheshe.com/etips-terms-and-conditions" target="_blank">Terms and Conditions</a></span></label>
                     <div *ngIf="!tandc.invalid && !tandc.touched" class="errors">*</div>
                 </div>
 
@@ -156,7 +151,7 @@ z-index: 999;
                 </div>
             </div>
 
-            <div *ngIf="CurrentPage == 2" class="form-item">
+            <!-- <div *ngIf="CurrentPage == 2" class="form-item">
                 <div class="headings">
                     <div class="lines"></div>
                     <label>Two-Factor Authentication</label>
@@ -199,7 +194,7 @@ z-index: 999;
                     <p>Use this option only on your personal devices. Do not select if using a shared device.</p>
                 </div>
     
-            </div>
+            </div> -->
 
             <div class="btn-holder">
                 <div class="buttons btn-2" (click)="PreviousClick()">Cancel</div>
@@ -213,7 +208,7 @@ z-index: 999;
                 <br>
                 <div class="indicator {{CurrentPage >= 0 ? 'indicator-on' : 'indicator-off'}}"></div>
                 <div class="indicator {{CurrentPage >= 1 ? 'indicator-on' : 'indicator-off'}}"></div>
-                <div class="indicator {{CurrentPage >= 2 ? 'indicator-on' : 'indicator-off'}}"></div>
+                <!-- <div class="indicator {{CurrentPage >= 2 ? 'indicator-on' : 'indicator-off'}}"></div> -->
             </div>
     
         </div>

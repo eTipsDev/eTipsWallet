@@ -8,4 +8,5 @@ export interface NewUser {
     termsAndCon:Boolean,
     privacy_policy:Boolean,
     email_not:boolean,
+    kyc:boolean
 }

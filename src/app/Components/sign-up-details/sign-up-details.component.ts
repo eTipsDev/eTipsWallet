@@ -34,7 +34,8 @@ export class SignUpDetailsComponent {
     repassword: "",
     termsAndCon: false,
     privacy_policy: false,
-    email_not: false
+    email_not: false,
+    kyc:false,
   };
 
   mRegister(form: any){
@@ -42,12 +43,12 @@ export class SignUpDetailsComponent {
       this.loading = true
       this.authentication.mRegister(this.user).then((data) =>{
         this.loading = false
-        form.reset();
 
-        this.successful = true;
-
+        if(data == 200){
+          form.reset();
+          this.successful = true
+        }
       }).catch((error) => {
-       
         const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage)
@@ -56,7 +57,7 @@ export class SignUpDetailsComponent {
     }
   }
 
-  pageCount:number = 2;
+  pageCount:number = 1;
 
   NextClick(form: any){
     if(this.CurrentPage == 1 && (!this.user.privacy_policy || !this.user.termsAndCon)){

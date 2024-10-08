@@ -6,8 +6,7 @@ import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtim
 import { KycServService } from '../../../Services/EtipsBackend/kyc-serv.service';
 import { log } from 'console';
 import { finalize } from 'rxjs';
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kyc-ui',
@@ -18,11 +17,12 @@ import { finalize } from 'rxjs';
 
 export class KycUIComponent implements OnInit{
 
+  loading:boolean = true;
 
   constructor(private firebase:RealtimeDBService,
-    private kycService:KycServService
+    private kycService:KycServService,
+    private route:Router
   ){}
-  
 
   user_kyc:KYC = {
     firstName: "",
@@ -57,6 +57,7 @@ ngOnInit(): void {
       this.firebase.getLoggedUserDetails(this.firebase.mGetLoggedInUser().uid).then((data) => {
         this.user_kyc.firstName = data.firstName;
         this.user_kyc.lastName = data.lastName
+        this.loading = false;
       });
     },100)
   }
@@ -80,21 +81,22 @@ ngOnInit(): void {
 
   CurrentPage = 0
 
-  pageCount:number = 1;
+  pageCount:number = 2;
 
   performKYC(form: any){
     if (form.valid) {
-      this.firebase.uploadKYC(this.user_kyc).then((data) => {
-        // console.log(data);
-        this.UploadToBackend();
-      });
+
+      alert("This will perform KYC")
+      // this.firebase.uploadKYC(this.user_kyc).then((data) => {
+      //   this.UploadToBackend();
+      // });
       
     }
   }
 
   NextClick(form: any){
 
-    if (form.valid ) {
+    if (form.valid) {
       if(this.CurrentPage < this.pageCount){
         this.CurrentPage += 1
       }
@@ -106,6 +108,7 @@ ngOnInit(): void {
 
   UploadToBackend(){
 
+    this.loading = true;
     const formData = new FormData();
     formData.append("firstName", this.user_kyc.firstName)
     formData.append("lastName", this.user_kyc.lastName)
@@ -117,12 +120,19 @@ ngOnInit(): void {
     )
 
     this.kycService.performKYC(formData).pipe(finalize(() => {
-      
+      this.loading = false;
     })
   ).subscribe({
         next: (message) => {
           // this.products = product,
-          console.log(message);
+
+          this.firebase.kycComplete({kyc:true}).then((data) => {
+            alert("updated ")
+            console.log(data);
+            
+          })
+          alert(message);
+          this.route.navigate(['/dashboard'])
           
         },
         error: (err) => {
@@ -133,6 +143,8 @@ ngOnInit(): void {
           else{
            
           }
+
+          alert("Failed KYC")
           console.log(err);
           
           // this.blLoadComplete = false

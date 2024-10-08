@@ -42,3 +42,22 @@ button{
     color: red;
     font-size: 13px;
   }
+
+  .app-loader{
+    /* From https://css.glass */
+
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.27);
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.4px);
+    -webkit-backdrop-filter: blur(6.4px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}

@@ -27,18 +27,3 @@
   @keyframes l12 { 
     100%{transform: rotate(.5turn)}
   }
-    .form-img{
-        background-image: url(/assets/images/unsplash_-rF4kuvgHhU.png);
-        
-        /* height: auto; */
-        /* background-attachment:scroll; */
-        background-repeat: no-repeat;
-        background-size:cover;
-        color: rgb(255, 255, 255);
-        font-weight: bolder;
-    }
-
-
-    div{
-        position: absolute;
-    }

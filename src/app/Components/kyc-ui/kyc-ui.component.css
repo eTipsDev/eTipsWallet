@@ -68,7 +68,7 @@ main{
         margin-top: 10px;
     }
 
-    button{
+    button, .nxt{
         border-radius: 5px;
         width: 100%;
         padding: 8px;
@@ -76,6 +76,7 @@ main{
         outline: none;
         border: none;
         color: white;
+        text-align: center;
     }
 
     .btn-1{

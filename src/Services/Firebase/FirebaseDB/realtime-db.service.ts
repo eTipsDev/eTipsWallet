@@ -33,6 +33,19 @@ export class RealtimeDBService {
     }
   }
 
+  async kycComplete(customer:any){
+
+    const user = this.mGetLoggedInUser().uid;
+    
+    // customer.externalUniqueId = user;
+    if(user){
+      return await update(
+        ref(this.GetRealtimeInstance(), 'users/' + user), 
+        customer
+      );
+    }
+  }
+
   mGetLoggedInUser():any{
     const auth = getAuth();
     const user = auth.currentUser;
