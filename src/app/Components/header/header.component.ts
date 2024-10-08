@@ -24,7 +24,11 @@ export class HeaderComponent implements OnInit{
   ngOnInit(): void {
     setTimeout(()=>{
       this.realtime.getLoggedUserDetails(this.realtime.mGetLoggedInUser().uid).then((data) => {
-        this.userData = data
+        if(data)
+        {
+          this.userData = data
+        }
+        
       });
     },100)
     
