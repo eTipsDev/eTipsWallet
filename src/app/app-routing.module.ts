@@ -18,14 +18,14 @@ import { WithdrawUIComponent } from './Components/withdraw-ui/withdraw-ui.compon
 
 const routes: Routes = [
   // {path:"welcome", component:WelcomeComponent},
-    {path:"sign-up", component:SignUpComponent},
-    {path:"sign-up/details", component:SignUpDetailsComponent},
-    {path:"kyc", component:KycUIComponent},
-    {path:"dashboard", component:DashboardComponent},
-    {path:"sign-in", component:SignInComponent},
-    {path:"qr-code", component:QrCodeComponent},
+    // {path:"sign-up", component:SignUpComponent},
+    // {path:"sign-up/details", component:SignUpDetailsComponent},
+    // {path:"kyc", component:KycUIComponent},
+    // {path:"dashboard", component:DashboardComponent},
+    // {path:"sign-in", component:SignInComponent},
+    // {path:"qr-code", component:QrCodeComponent},
 
-    {path:"tips", component:TipsUIComponent},
+    // {path:"tips", component:TipsUIComponent},
     // {path:"withdraw", component:WithdrawUIComponent},
   //   {path:"account-setting", component:AccountSettingComponent},
   //   // {path:"forget-password", component:ForgetPasswordComponent},
@@ -35,7 +35,7 @@ const routes: Routes = [
   //   {path:"reference", component:ReferenceComponent},
   //   {path:"security-privacy", component:SecurityPrivacyComponent},
   //   // {path:"verify-account", component:VerifyEmailComponent},
-    { path:'', redirectTo:'/sign-in', pathMatch: 'full' }
+    // { path:'', redirectTo:'/sign-in', pathMatch: 'full' }
 ];
 
 @NgModule({
