@@ -55,8 +55,12 @@ export class KycUIComponent implements OnInit{
 ngOnInit(): void {
     setTimeout(()=>{
       this.firebase.getLoggedUserDetails(this.firebase.mGetLoggedInUser().uid).then((data) => {
-        this.user_kyc.firstName = data.firstName;
-        this.user_kyc.lastName = data.lastName
+
+        if(data){
+          this.user_kyc.firstName = data.firstName;
+          this.user_kyc.lastName = data.lastName
+        }
+
         this.loading = false;
       });
     },100)
@@ -88,7 +92,7 @@ ngOnInit(): void {
 
       alert("This will perform KYC")
 
-      
+
       // this.firebase.uploadKYC(this.user_kyc).then((data) => {
       //   this.UploadToBackend();
       // });
