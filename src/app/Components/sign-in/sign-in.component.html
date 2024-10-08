@@ -1,72 +1,72 @@
+
 <div *ngIf="loading" class="app-loader">
   <app-loader></app-loader>
 </div>
 <main>
-  <div class="holder">
-q
-      <div style=" position: fixed;" class="img-holder">
-      <img class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
-      </div>
-      
-      <div style="opacity: 0;" class="img-holder2">
-        <img class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
-        </div>
-       <div class="headings">
-                  <div class="lines"></div>
-              </div>
-              <app-header style="width: 100%;"></app-header>
 
-              <!-- <div *ngIf="!userData.kyc" class="form-item no-data">
-                  <img src="../../../assets/images/dazzle-smartphone-with-financial-analytics-showing-income.gif"/>
-                  <div class="btn-holder">
-                    <button type="submit" routerLink="/kyc" class="btn-1">Start earning tips</button>
-                </div>
+    <div class="holder">
+
+        <img src="/assets/images/image.png"/>
+        <div class="content">
+            
+          <div class="top-hed">
+
+            <img class="icon" src="/assets/images/etips_logo_samples-06 1.svg"/>
+
+            <p class="message">
+                Innovative digital tipping product 
+                serving the needs of the service 
+                industry workers
+            </p>
+              
+  
             </div>
-   -->
-             
-          <!-- <div *ngIf="userData.kyc" class="form-item">
-             
-              <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-                <div *ngIf="visible" style="position: absolute;" class="loader"></div>
-                  <canvas  height="180" id="myChart"></canvas>
-                </div>
 
-                <div style="display: flex; gap: 5px; align-items: center;">
-                  <h2 style="font-weight: bold;">30%</h2>
-                  <br>
-                  <p>Your tips have increased by 30%
-                      better compare to last month</p>
-                </div>
+<form #userForm="ngForm" (ngSubmit)="Login(userForm)">
+    <div class="form-item">
+        <div class="input-div">
+            <label for="">Email*</label>
+            <input input autofocus id="email" name="email" [(ngModel)]="LoginDetails.email" placeholder="Enter Email" #email="ngModel" minlength="4" appForbiddenName="etips" required email/>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="errors">email is required.</div>
+                
+                  <!-- <div class="errors" *ngIf="email.hasError('minlength')">
+                    minimum length is 4.
+                  </div> -->
+                  <!-- <div class="errors" *ngIf="email.hasError('forbiddenName')">
+                    email cannot contain funa.
+                  </div> -->
+        </div>
 
-                <div class="btn-holder">
-                  <button type="submit" class="btn-1">Details</button>
-              </div>
-          </div>
+        <div class="input-div">
+            <label for="">Password*</label>
+            <input [(ngModel)]="LoginDetails.password" #password="ngModel" id="password" type="password" name="password" placeholder="Enter Password"  minlength="4" appForbiddenName="etips" required/>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errors">password is required.</div>
+                
+                  <div class="errors" *ngIf="password.hasError('minlength')">
+                    minimum length is 4.
+                  </div>
+                  <div class="errors" *ngIf="password.hasError('forbiddenName')">
+                    password cannot be funa.
+                  </div>
+        </div>
 
-          <div *ngIf="userData.kyc" class="form-item form-img">
+    </div>
+ <button class="btn-1s">Sign in</button>
 
-                <div style="display: flex; gap: 5px; align-items: center;">
-                  <p>Sharing tips with your colleagues</p>
-                </div>
+ <label class="text">Or sign in with</label>
+    <div class="btn-holder">
+        <button class="btn-2">Log in with google</button>
+        <button type="submit" class="btn-1">Login with linkedIn</button>
+    </div>
 
-                <div class="btn-holder">
-                  <button type="submit" class="btn-1">Readmore</button>
-              </div>
-          </div>
+    <label class="text">Don't have an account? <a routerLink="/sign-up">Register here</a></label>
+    <a class="tandc" href="https://www.ukheshe.com/etips-terms-and-conditions" target="_blank">Terms and Conditions</a>
 
-          <div *ngIf="userData.kyc" class="form-item">
-              <h5>Lethabo's Score</h5>
+</form>
 
-              <h6>Need Approvement</h6>
+   
+    
+        </div>
 
-                <div style="display: flex; gap: 5px; align-items: center;">
-                  <p>Here are some tips on how to
-                    improve your rating score</p>
-                </div>
-                <div class="btn-holder">
-                  <button type="submit" class="btn-1">Details</button>
-              </div>
-          </div> -->
-
-      </div>
+    </div>
 </main>
