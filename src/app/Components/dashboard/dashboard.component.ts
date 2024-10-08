@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import Chart from 'chart.js/auto'
-import { RouterModule } from '@angular/router';
-
 import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtime-db.service';
 
 
@@ -54,7 +50,10 @@ export class DashboardComponent implements OnInit{
 
     setTimeout(()=> {
       this.realtime.getLoggedUserDetails(this.realtime.mGetLoggedInUser().uid).then((data) => {
-        this.userData = data
+        if(data){
+          this.userData = data
+        }
+        
         this.loading = false
       });
     },100)
