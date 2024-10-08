@@ -87,6 +87,8 @@ ngOnInit(): void {
     if (form.valid) {
 
       alert("This will perform KYC")
+
+      
       // this.firebase.uploadKYC(this.user_kyc).then((data) => {
       //   this.UploadToBackend();
       // });
