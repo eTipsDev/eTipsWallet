@@ -22,7 +22,7 @@ const routes: Routes = [
     // {path:"sign-up/details", component:SignUpDetailsComponent},
     // {path:"kyc", component:KycUIComponent},
     // {path:"dashboard", component:DashboardComponent},
-    // {path:"sign-in", component:SignInComponent},
+    {path:"sign-in", component:SignInComponent},
     // {path:"qr-code", component:QrCodeComponent},
 
     // {path:"tips", component:TipsUIComponent},
@@ -35,7 +35,7 @@ const routes: Routes = [
   //   {path:"reference", component:ReferenceComponent},
   //   {path:"security-privacy", component:SecurityPrivacyComponent},
   //   // {path:"verify-account", component:VerifyEmailComponent},
-    // { path:'', redirectTo:'/sign-in', pathMatch: 'full' }
+    { path:'', redirectTo:'/sign-in', pathMatch: 'full' }
 ];
 
 @NgModule({
