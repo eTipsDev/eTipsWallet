@@ -20,7 +20,7 @@ const routes: Routes = [
   // {path:"welcome", component:WelcomeComponent},
     {path:"sign-up", component:SignUpComponent},
     {path:"sign-up/details", component:SignUpDetailsComponent},
-    {path:"kyc", component:KycUIComponent},
+    // {path:"kyc", component:KycUIComponent},
     // {path:"dashboard", component:DashboardComponent},
     {path:"sign-in", component:SignInComponent},
     // {path:"qr-code", component:QrCodeComponent},
