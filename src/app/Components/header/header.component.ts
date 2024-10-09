@@ -12,7 +12,7 @@ import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtim
   styleUrl: './header.component.css'
 })
 
-export class HeaderComponent implements OnInit{
+export class HeaderComponent  {
 
   constructor(private realtime:RealtimeDBService){}
 
@@ -21,15 +21,15 @@ export class HeaderComponent implements OnInit{
     lastName:"........"
   }
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     setTimeout(()=>{
-      // this.realtime.getLoggedUserDetails().then((data) => {
-      //   if(data)
-      //   {
-      //     this.userData = data
-      //   }
+      this.realtime.getLoggedUserDetails().then((data) => {
+        if(data)
+        {
+          this.userData = data
+        }
         
-      // });
+      });
     },100)
     
   }
