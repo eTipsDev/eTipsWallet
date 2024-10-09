@@ -16,13 +16,13 @@ export class TestComponentComponent implements OnInit{
 
   ngOnInit(): void {
     setTimeout(()=>{
-      this.realtime.getLoggedUserDetails(this.realtime.mGetLoggedInUser().uid).then((data) => {
-        if(data)
-        {
-          this.userData = data
-        }
+      // this.realtime.getLoggedUserDetails(this.realtime.mGetLoggedInUser().uid).then((data) => {
+      //   if(data)
+      //   {
+      //     this.userData = data
+      //   }
         
-      });
+      // });
     },5000)
     
   }
