@@ -23,13 +23,13 @@ export class HeaderComponent  {
 
   ngAfterViewInit(): void {
     setTimeout(()=>{
-      // this.realtime.getLoggedUserDetails().then((data) => {
-      //   if(data)
-      //   {
-      //     this.userData = data
-      //   }
+      this.realtime.getLoggedUserDetails().then((data) => {
+        if(data)
+        {
+          this.userData = data
+        }
         
-      // });
+      });
     },100)
     
   }
