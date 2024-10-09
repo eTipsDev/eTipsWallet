@@ -74,6 +74,11 @@ a{
 
 @media only screen and (max-width:700px){
 
+    img{
+        width: 100%;
+        height: auto;
+    }
+
     .img-holder{
         padding: 8% 0px;
     }
@@ -232,3 +237,31 @@ a{
         text-align: center;
     }
 }
+
+
+main{
+    padding: 0;
+    /* background-image: url('/assets/images/image.png'); */
+    background-position: top;
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+}
+
+.holder{
+    gap: 30px; 
+    padding: 0px;
+}
+
+.content{
+    position: absolute;
+    height: auto;
+    /* background-color: #8000FF; */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    bottom: 0;
+    /* padding: 10px 50px;
+    padding-bottom: 20%; */
+}
+
