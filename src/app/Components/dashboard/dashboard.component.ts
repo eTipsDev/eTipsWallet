@@ -8,7 +8,7 @@ import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtim
   styleUrl: './dashboard.component.css'
 })
 
-export class DashboardComponent implements OnInit{
+export class DashboardComponent {
 
   loading:boolean = true;
 
@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit{
   }
 
   visible:boolean = true
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
 
     // setTimeout(() => {
     // const ctx:any = document.getElementById('myChart');
