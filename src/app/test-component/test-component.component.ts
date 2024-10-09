@@ -23,7 +23,7 @@ export class TestComponentComponent implements OnInit{
         }
         
       });
-    },100)
+    },5000)
     
   }
 
