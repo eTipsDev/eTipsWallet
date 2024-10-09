@@ -54,16 +54,16 @@ export class KycUIComponent implements OnInit{
 
 ngOnInit(): void {
     setTimeout(()=>{
-      this.firebase.getLoggedUserDetails(this.firebase.mGetLoggedInUser().uid).then((data) => {
+    //   this.firebase.getLoggedUserDetails(this.firebase.mGetLoggedInUser().uid).then((data) => {
 
-        if(data){
-          this.user_kyc.firstName = data.firstName;
-          this.user_kyc.lastName = data.lastName
-        }
+    //     if(data){
+    //       this.user_kyc.firstName = data.firstName;
+    //       this.user_kyc.lastName = data.lastName
+    //     }
 
         this.loading = false;
       });
-    },100)
+    // },100)
   }
   uploaded = "/assets/images/ic-round-upload-file.svg";
 
