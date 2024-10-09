@@ -56,7 +56,7 @@ export class DashboardComponent implements OnInit{
         
         this.loading = false
       });
-    },1000)
+    },100)
   }
 
 }

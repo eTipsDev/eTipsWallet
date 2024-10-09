@@ -37,11 +37,17 @@ main{
     letter-spacing: 1px;
 }
 
-@media only screen and (max-width:700px){
+/* @media only screen and (max-width:700px){ */
 
     .img-holder{
         /* background-color: red; */
-        padding: 5% 0px;
+        background-color: #F7F7F2;
+        padding: 0% 0px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .icon{
@@ -171,7 +177,7 @@ main{
         width: 40px;
 
     }
-}
+/* } */
 
 .headings .lines{
     width: 100%;

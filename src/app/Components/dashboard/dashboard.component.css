@@ -40,11 +40,16 @@ main{
     letter-spacing: 1px;
 }
 
-@media only screen and (max-width:700px){
+/* @media only screen and (max-width:700px){ */
 
     .img-holder{
         /* background-color: red; */
         padding: 0% 0px;
+        background-color: #F7F7F2;
+        width: 100%;
+            display: flex;
+            justify-content: center;
+        
     }
 
     .icon{
@@ -337,7 +342,7 @@ main{
         position: absolute;
 
       }
-}
+/* } */
 
    /* HTML: <div class="loader"></div> */
 .loader {

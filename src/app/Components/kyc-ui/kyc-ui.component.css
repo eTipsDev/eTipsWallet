@@ -2,7 +2,7 @@ main{
     padding: 0px 25px;
     background-color: #F7F7F2;
     justify-content: flex-start;
-    width: 100%;
+    /* width: 100%; */
     height: auto;
     /* background-image: url('/assets/images/image.png'); */
 }
@@ -39,11 +39,15 @@ main{
     letter-spacing: 1px;
 }
 
-@media only screen and (max-width:700px){
+/* @media only screen and (max-width:700px){ */
 
     .img-holder{
         /* background-color: red; */
         padding: 2% 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #F7F7F2;
     }
 
     .icon{
@@ -298,4 +302,4 @@ main{
         position: absolute;
 
       }
-}
+/* } */
