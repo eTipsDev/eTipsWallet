@@ -48,15 +48,15 @@ export class DashboardComponent implements OnInit{
     //     this.visible = false
     // },  2000)
 
-    // setTimeout(()=> {
-    //   this.realtime.getLoggedUserDetails(this.realtime.mGetLoggedInUser().uid).then((data) => {
-    //     if(data){
-    //       this.userData = data
-    //     }
+    setTimeout(()=> {
+      this.realtime.getLoggedUserDetails(this.realtime.mGetLoggedInUser().uid).then((data) => {
+        if(data){
+          this.userData = data
+        }
         
-    //     this.loading = false
-    //   });
-    // },100)
+        this.loading = false
+      });
+    },1000)
   }
 
 }
