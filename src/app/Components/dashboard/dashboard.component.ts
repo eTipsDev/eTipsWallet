@@ -49,13 +49,13 @@ export class DashboardComponent implements OnInit{
     // },  2000)
 
     setTimeout(()=> {
-      this.realtime.getLoggedUserDetails().then((data) => {
-        if(data){
-          this.userData = data
-        }
+      // this.realtime.getLoggedUserDetails().then((data) => {
+      //   if(data){
+      //     this.userData = data
+      //   }
         
         this.loading = false
-      });
+      // });
     },1000)
   }
 
