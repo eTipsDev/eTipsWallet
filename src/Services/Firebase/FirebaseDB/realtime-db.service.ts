@@ -13,11 +13,11 @@ export class RealtimeDBService {
    private realtimedatabase?:any;
   
   private constructor( private router: Router, firbaseInst: FirebaseService) { 
-    console.log(">>>> ", firbaseInst.app);
+    // console.log(">>>> ", firbaseInst.app);
 
-    if(!firbaseInst.app){
-      firbaseInst.getFirebaseInstance()
-    }
+    // if(!firbaseInst.app){
+    //   firbaseInst.getFirebaseInstance()
+    // }
     
     this.realtimedatabase = getDatabase();
   }
