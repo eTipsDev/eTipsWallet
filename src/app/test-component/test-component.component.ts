@@ -20,7 +20,6 @@ export class TestComponentComponent implements OnInit{
 
   visible:boolean = true
   ngOnInit(): void {
-
     // setTimeout(() => {
     // const ctx:any = document.getElementById('myChart');
 
