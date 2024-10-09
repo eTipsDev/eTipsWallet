@@ -12,9 +12,16 @@ export class RealtimeDBService {
 
    private realtimedatabase?:any;
   
-  private constructor( private router: Router,) { 
+  private constructor( private router: Router, firbaseInst: FirebaseService) { 
+    console.log(">>>> ", firbaseInst.app);
+
+    if(!firbaseInst.app){
+      firbaseInst.getFirebaseInstance()
+    }
+    
     this.realtimedatabase = getDatabase();
   }
+
 
   GetRealtimeInstance(){
     return this.realtimedatabase
@@ -57,14 +64,14 @@ export class RealtimeDBService {
     return {};
   }
 
-  async getLoggedUserDetails(userID:any):Promise<any>{
+  async getLoggedUserDetails():Promise<any>{
 
     let user:any;
     const db = getDatabase();
 
     const dbRef = ref(db);
     
-     await get(child(dbRef, `users/${userID}`)).then((snapshot) => {
+     await get(child(dbRef, `users/${this.mGetLoggedInUser().uid}`)).then((snapshot) => {
       if (snapshot.exists()) {
 
          user = snapshot.val();
@@ -75,10 +82,5 @@ export class RealtimeDBService {
 
     return user;
   }
-
-
-
-
-
 
 }

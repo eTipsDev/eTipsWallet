@@ -22,15 +22,15 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // setTimeout(()=>{
-    //   this.realtime.getLoggedUserDetails(this.realtime.mGetLoggedInUser().uid).then((data) => {
-    //     if(data)
-    //     {
-    //       this.userData = data
-    //     }
+    setTimeout(()=>{
+      this.realtime.getLoggedUserDetails().then((data) => {
+        if(data)
+        {
+          this.userData = data
+        }
         
-    //   });
-    // },100)
+      });
+    },1000)
     
   }
 

@@ -20,6 +20,7 @@ export class AuthenticationService {
   constructor(firbaseInst: FirebaseService,  
     private router: Router,
     private realtimeDB:RealtimeDBService) { 
+      
     this.authentication = getAuth(firbaseInst.getFirebaseInstance());
   }
   

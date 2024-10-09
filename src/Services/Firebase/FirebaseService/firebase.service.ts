@@ -12,7 +12,6 @@ export class FirebaseService {
     public app?:any;
 
   private constructor() { 
-    // console.log(environment.firebase);
     this.app = initializeApp(environment.firebase);
   }
 
