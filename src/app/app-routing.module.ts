@@ -15,13 +15,14 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { TipsUIComponent } from './Components/tips-ui/tips-ui.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { WithdrawUIComponent } from './Components/withdraw-ui/withdraw-ui.component';
+import { TestComponentComponent } from './test-component/test-component.component';
 
 const routes: Routes = [
   // {path:"welcome", component:WelcomeComponent},
     {path:"sign-up", component:SignUpComponent},
     {path:"sign-up/details", component:SignUpDetailsComponent},
     // {path:"kyc", component:KycUIComponent},
-    {path:"dashboard", component:DashboardComponent},
+    {path:"dashboard", component:TestComponentComponent},
     {path:"sign-in", component:SignInComponent},
     // {path:"qr-code", component:QrCodeComponent},
 

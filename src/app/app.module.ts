@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { TestComponentComponent } from './test-component/test-component.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
     VerifyEmailComponent,
     WelcomeComponent,
     WithdrawUIComponent,
+    TestComponentComponent,
   ],
   imports: [
     BrowserModule,
