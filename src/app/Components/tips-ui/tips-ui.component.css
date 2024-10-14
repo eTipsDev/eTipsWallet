@@ -1,7 +1,7 @@
 main{
     padding: 0px 25px;
-    padding-bottom: 15px;
-    margin-bottom: 15px; 
+    padding-bottom:0px;
+    margin-bottom: 0px; 
     background-color: #F7F7F2;
     justify-content: flex-start;
     /* background-image: url('/assets/images/image.png'); */
@@ -14,13 +14,31 @@ main{
     gap: 0;
     justify-content: flex-start;
     height: 100%;
-    
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+    box-sizing: border-box;
+}
+
+.tips-bal{
+    font-size: 20px;
+    letter-spacing: 1px;
+
+    text-wrap: wrap;
+}
+
+.info-mess{
+    font-size: 10px;
+    padding: 5% 5px;
+    word-spacing: 0.5px;
+    letter-spacing: 0.5px;
+    text-align: center;
 }
 
 p{
     color: gray;
 
-    font-size: small;
+    font-size: 12px;
 }
 
 .headings{
@@ -32,6 +50,7 @@ p{
     justify-content: center;
     align-items: center;
 }
+
 .headings .lines{
     width: 100%;
     height: 1px;
@@ -55,9 +74,19 @@ p{
         justify-content: center;
         width: 100%;
     }
+    .img-holder2{
+        /* background-color: red; */
+        padding: 0% 0px;
+        background-color: #F7F7F2;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
     .icon{
-        height: 55px;
+        height: 50px;
+        padding: 10% 0px;
+        padding-top: 5%;
     }
 
     .title{
@@ -109,20 +138,76 @@ p{
         flex-direction: column;
         width: 100%;
         gap: 10px; 
-        padding: 10px 15px;
+        padding: 10px 0px;
         height: auto;
         background-color: #fff;
         border-radius: 8px;
-        border: 1px solid gray;
+        border: 1px solid  rgb(226, 226, 226);
         margin-top: 15px;
         justify-content: center;
         align-items: center;
+    }
+
+    .form-item2{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        gap: 20px; 
+        padding: 10px 15px;
+        height: 20%;
+        background-color: #fff;
+        border-radius: 8px;
+        border: 1px solid gray;
+        margin-top: 8px;
+        justify-content: center;
+        align-items: center;
+        background-image: url(/assets/images/Mask\ Group@1x.png);
+        /* background-color: rgb(31, 244, 109); */
+        color: #fff;
+    }
+
+    .top-card{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+        width: 100%;
+    }
+    .middle-card{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+        width: 100%;
+        word-spacing: 20px;
+    }
+    .bottom-card{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+        width: 100%;
+        color: white;
+    }
+
+    .bottom-card p{
+        color: white;
+    }
+
+    .visa-img{
+        width: 40px;
+
     }
 
     .div-1{
         display: flex;
         justify-content: space-between;
         width: 100%;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .div-1 label{
+        font-size: 11px;
+        text-wrap: wrap;
     }
 
     .d1{

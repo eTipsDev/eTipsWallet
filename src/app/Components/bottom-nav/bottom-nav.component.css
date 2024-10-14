@@ -1,0 +1,36 @@
+.bottom-div{
+    display: flex;
+    background-color: #F7F7F2;
+    padding: 15px 5px;
+    /* justify-content: space-around; */
+    align-items: center;
+    gap: 10px;
+    background-color: #F7F7F2;
+}
+
+.single-item{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.single-item label{
+    font-size: 12px;
+}
+
+.single-item i{
+    font-size: 17px;
+}
+
+.single-item i{
+    font-size: 17px;
+    color: #aaaaaa;
+}
+
+.single-item-selected > i{
+    color: var(--primary-color);
+    font-weight: bold;
+}

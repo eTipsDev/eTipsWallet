@@ -2,6 +2,7 @@
   <app-loader></app-loader>
 </div>
 <main>
+  
   <div class="holder">
       <div style=" position: fixed;" class="img-holder">
       <img class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
@@ -18,7 +19,7 @@
                <!-- <app-test-component ></app-test-component> -->
 
               <div *ngIf="!userData.kyc" class="form-item no-data">
-                  <img src="../../../assets/images/dazzle-smartphone-with-financial-analytics-showing-income.gif"/>
+                  <img class="img-gif" src="../../../assets/images/dazzle-smartphone-with-financial-analytics-showing-income.gif"/>
                   <div class="btn-holder">
                     <button type="submit" routerLink="/kyc" class="btn-1">Start earning tips</button>
                 </div>
@@ -61,7 +62,7 @@
               <h6>Need Approvement</h6>
 
                 <div style="display: flex; gap: 5px; align-items: center;">
-                  <p>Here are some tips on how to
+                  <p class="p-tag">Here are some tips on how to
                     improve your rating score</p>
                 </div>
                 <div class="btn-holder">
@@ -70,4 +71,7 @@
           </div>
 
       </div>
+      
 </main>
+<app-bottom-nav></app-bottom-nav>
+<!-- <app-bottom-nav class="bot2"></app-bottom-nav> -->

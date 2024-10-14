@@ -24,7 +24,6 @@ const routes: Routes = [
     {path:"dashboard", component:DashboardComponent},
     {path:"sign-in", component:SignInComponent},
     {path:"qr-code", component:QrCodeComponent},
-
     {path:"tips", component:TipsUIComponent},
     {path:"withdraw", component:WithdrawUIComponent},
     {path:"account-setting", component:AccountSettingComponent},

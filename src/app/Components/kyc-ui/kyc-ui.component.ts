@@ -25,29 +25,32 @@ export class KycUIComponent implements OnInit{
   ){}
 
   user_kyc:KYC = {
-    firstName: "",
-    lastName: "",
-    mobileNumber: "",
-    image: "",
-    BankDetails: {
-      account_holder: "",
-      account_type: "",
-      account_number: "",
-      branch: "",
-      bank: ""
+    userDetails: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobileNumber: '',
+      image: '',
+      idNumber: '',
+      work: ''
     },
-    work: "",
-    idNumber: "",
-    externalUniqueId: "",
+    BankDetails: {
+      account_holder: '',
+      account_type: '',
+      account_number: '',
+      branch: '',
+      bank: ''
+    },
+    externalUniqueId: '',
     address: {
-      addressType: "PRIMARY",
-      city: "",
-      code: "",
-      country: "",
-      line1: "",
-      line2: "",
-      line3: "",
-      state: ""
+      addressType: '',
+      city: '',
+      code: '',
+      country: '',
+      line1: '',
+      line2: '',
+      line3: '',
+      state: ''
     },
     passedAWSLiveness: false
   };
@@ -73,7 +76,7 @@ ngOnInit(): void {
     const selectedFile = event.target.files[0];
     const reader = new FileReader();
 
-    this.user_kyc.image = event.target.files[0]
+    this.user_kyc.userDetails.image = event.target.files[0]
     
     reader.onload = async (event:any) => {
 
@@ -91,7 +94,6 @@ ngOnInit(): void {
     if (form.valid) {
 
       alert("This will perform KYC")
-
 
       // this.firebase.uploadKYC(this.user_kyc).then((data) => {
       //   this.UploadToBackend();
@@ -116,12 +118,12 @@ ngOnInit(): void {
 
     this.loading = true;
     const formData = new FormData();
-    formData.append("firstName", this.user_kyc.firstName)
-    formData.append("lastName", this.user_kyc.lastName)
-    formData.append("mobileNumber", this.user_kyc.mobileNumber)
-    formData.append("idNumber", this.user_kyc.idNumber)
+    formData.append("firstName", this.user_kyc.userDetails.firstName)
+    formData.append("lastName", this.user_kyc.userDetails.lastName)
+    formData.append("mobileNumber", this.user_kyc.userDetails.mobileNumber)
+    formData.append("idNumber", this.user_kyc.userDetails.idNumber)
     formData.append("externalUniqueId", this.user_kyc.externalUniqueId)
-    formData.append("image", this.user_kyc.image)
+    formData.append("image", this.user_kyc.userDetails.image)
     formData.append("address", JSON.stringify(this.user_kyc.address)
     )
 

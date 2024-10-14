@@ -20,7 +20,7 @@
 
                 <div class="input-div">
                     <label for="">Fullname*</label>
-                    <input disabled="true" [(ngModel)]="user_kyc!.firstName" #fullname="ngModel" id="fullname" type="text" name="fullname"  minlength="4" appForbiddenName="etips" required placeholder="Enter fullname"/>
+                    <input disabled="true" [(ngModel)]="user_kyc!.userDetails.firstName" #fullname="ngModel" id="fullname" type="text" name="fullname"  minlength="4" appForbiddenName="etips" required placeholder="Enter fullname"/>
                     <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="errors">fullname is required.</div>
                 
                   <div class="errors" *ngIf="fullname.hasError('minlength')">
@@ -33,7 +33,7 @@
 
                 <div class="input-div">
                     <label for="">Surname*</label>
-                    <input disabled="true" [(ngModel)]="user_kyc!.lastName" #surname="ngModel" id="surname" type="text" name="surname"  minlength="4" appForbiddenName="etips" required placeholder="Enter surname"/>
+                    <input disabled="true" [(ngModel)]="user_kyc!.userDetails.lastName" #surname="ngModel" id="surname" type="text" name="surname"  minlength="4" appForbiddenName="etips" required placeholder="Enter surname"/>
                     <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="errors">surname is required.</div>            
                   <div class="errors" *ngIf="surname.hasError('minlength')">
                     minimum length is 4.
@@ -45,7 +45,7 @@
 
                 <div class="input-div">
                     <label for="">Phone number*</label>
-                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.mobileNumber" #contact="ngModel" id="contact" type="text" name="contact"  minlength="10" maxlength="10" appForbiddenName="etips" required placeholder="+27  |   Enter phone number"/>
+                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.userDetails.mobileNumber" #contact="ngModel" id="contact" type="text" name="contact"  minlength="10" maxlength="10" appForbiddenName="etips" required placeholder="+27  |   Enter phone number"/>
                     <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="errors">contact is required.</div>
                 
                   <div class="errors" *ngIf="contact.hasError('minlength')">
@@ -61,7 +61,7 @@
 
                 <div class="input-div">
                     <label for="">ID Number*</label>
-                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.idNumber" #idNumber="ngModel" id="idNumber" type="text" name="idNumber" minlength="13" maxlength="13" appForbiddenName="etips" required placeholder="Enter id number"/>
+                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.userDetails.idNumber" #idNumber="ngModel" id="idNumber" type="text" name="idNumber" minlength="13" maxlength="13" appForbiddenName="etips" required placeholder="Enter id number"/>
                     <div *ngIf="idNumber.invalid && (idNumber.dirty || idNumber.touched)" class="errors">ID Number is required.</div>
                 
                   <div class="errors" *ngIf="idNumber.hasError('minlength')">
@@ -150,7 +150,7 @@
 
                     <div class="input-div">
                       <label for="">Current Work Place*</label>
-                      <input [(ngModel)]="user_kyc!.work" #work="ngModel" id="work" type="text" name="work"  minlength="2" appForbiddenName="etips" required placeholder="Enter work place"/>
+                      <input [(ngModel)]="user_kyc!.userDetails.work" #work="ngModel" id="work" type="text" name="work"  minlength="2" appForbiddenName="etips" required placeholder="Enter work place"/>
                       <div *ngIf="work.invalid && (work.dirty || work.touched)" class="errors"> Current work place is required</div>
                       <div class="errors" *ngIf="work.hasError('minlength')">
                           minimum length is 2.
@@ -263,7 +263,7 @@
                             <button class="btn-2">Upload</button>
                         </div>
                         
-                        <input [(ngModel)]="user_kyc!.image" #image="ngModel" id="image" name="image" required type="file" accept=".png, .jpeg, .jpg" (change)="loadImage($event)">
+                        <input [(ngModel)]="user_kyc!.userDetails.image" #image="ngModel" id="image" name="image" required type="file" accept=".png, .jpeg, .jpg" (change)="loadImage($event)">
 
                     </div>
                 </div>
@@ -291,3 +291,5 @@
 
         </div>
 </main>
+<app-bottom-nav></app-bottom-nav>
+<app-bottom-nav class="bot2"></app-bottom-nav>

@@ -31,6 +31,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { TestComponentComponent } from './test-component/test-component.component';
+import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { TestComponentComponent } from './test-component/test-component.componen
     WelcomeComponent,
     WithdrawUIComponent,
     TestComponentComponent,
+    BottomNavComponent,
   ],
   imports: [
     BrowserModule,

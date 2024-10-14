@@ -4,6 +4,7 @@ main{
     justify-content: flex-start;
     margin-bottom: 0;
     padding-bottom: 0;
+    height: 100vh;
     /* background-image: url('/assets/images/image.png'); */
 }
 
@@ -79,8 +80,8 @@ main{
 
 main{
     padding: 0px 25px;
-    padding-bottom: 15px;
-    margin-bottom: 15px; 
+    padding-bottom: 0px;
+    margin-bottom: 0px; 
     background-color: #F7F7F2;
     justify-content: flex-start;
     /* background-image: url('/assets/images/image.png'); */
@@ -132,6 +133,7 @@ p{
         background-color: #F7F7F2;
         display: flex;
         justify-content: center;
+        width: 100%;
     }
 
     .icon{

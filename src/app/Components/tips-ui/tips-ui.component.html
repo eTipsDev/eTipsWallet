@@ -11,9 +11,6 @@
       <div style="opacity: 0;" class="img-holder2">
         <img routerLink="/dashboard" class="icon" src="../../../assets/images/etips_logo_samples-06 1.svg"/>    
         </div>
-       <div class="headings">
-                  <div class="lines"></div>
-              </div>
 
               <app-header style="width: 100%;"></app-header>
 
@@ -22,35 +19,53 @@
               <!-- <img src="../../../assets/images/unsplash_-rF4kuvgHhU.png"/> -->
 
                 <div style="display: flex; gap: 5px; align-items: center;">
-                  <p>Account Balance</p>
+                  <p>Tips Balance</p>
                 </div>
 
-                <h5>R1500.00</h5>
-                <hr>
+                <label class="tips-bal">R1500.00</label>
 
-                <div class="div-1">
-                  <div class="d1">
-
-                      <p>Total Income</p>
-                      <h4>R4500</h4>
-                  </div>
-
-                  <div class="d1">
-                      <p>Expenses</p>
-                      <h4>R3000</h4>
-                  </div>
-                </div>
-
-                <hr>
-
-                <div class="btn-holder">
-                  <button type="submit" routerLink="/withdraw" class="btn-1">Withdraw</button>
+                <div class="headings">
+                  <div class="lines"  style="margin: 0px 10%;"></div>
               </div>
+                <div class="div-1">
+                  <p>Next transfer date</p>
+                  <label>DD/ MMM / YYYY</label>
+                </div>
+    
           </div>
 
-          <div class="form-item">
+          <p class="info-mess">
+            <b><u>Disclaimer</u>!</b>
+            Funds are automatically transferred to your bank account weekly. This feature is in beta, and we recommend monitoring your transactions closely. Please report any issues as we continue to improve 
+            the service.
+          </p>
+          <p style="padding-top: 5px;">All funds are transfered to this account</p>
+          <div *ngIf="true" class="form-item2">
+            
+            <div class="top-card">
+                <label>R50</label>
+                <img class="visa-img" src="../../../assets/images/Visa.png"/>
+               </div>
 
-              <!-- <img src="../../../assets/images/unsplash_-rF4kuvgHhU.png"/> -->
+               <div  class="middle-card" >
+                <label>****   ****    ****   4782</label>
+                <img />
+               </div>
+
+               <div class="bottom-card">
+                <div>
+                    <label>Card Holder</label>
+                    <p>Lethabo Mtshali</p>
+                </div>
+
+                <div>
+                    <label>Expires</label>
+                    <p>01/21</p>
+                </div>
+                
+               </div>
+        </div>
+          <!-- <div class="form-item">
 
                 <div style="display: flex; gap: 5px; align-items: center;">
                   <p>Total Tips Received</p>
@@ -83,7 +98,7 @@
                   <label type="submit">Weekly</label>
                   <label type="submit" >monthly</label>
               </div>
-          </div>
+          </div> -->
 
       </div>
 </main>

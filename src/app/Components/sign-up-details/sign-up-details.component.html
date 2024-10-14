@@ -25,7 +25,7 @@ z-index: 999;
     
                 <div class="input-div">
                     <label for="">Fullname*</label>
-                    <input [(ngModel)]="user!.firstName" #fullname="ngModel" id="fullname" type="text" name="fullname"  minlength="2" appForbiddenName="etips" required placeholder="Enter fullname"/>
+                    <input [(ngModel)]="user!.userDetails.firstName" #fullname="ngModel" id="fullname" type="text" name="fullname"  minlength="2" appForbiddenName="etips" required placeholder="Enter fullname"/>
                     <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="errors">fullname is required.</div>
                 
                   <div class="errors" *ngIf="fullname.hasError('minlength')">
@@ -38,7 +38,7 @@ z-index: 999;
     
                 <div class="input-div">
                     <label for="" >Surname*</label>
-                    <input  [(ngModel)]="user!.lastName" #surname="ngModel" id="surname" type="text" name="surname"  minlength="2" appForbiddenName="etips" required placeholder="Enter surname"/>
+                    <input  [(ngModel)]="user!.userDetails.lastName" #surname="ngModel" id="surname" type="text" name="surname"  minlength="2" appForbiddenName="etips" required placeholder="Enter surname"/>
                     <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="errors">surname is required.</div>
                 
                   <div class="errors" *ngIf="surname.hasError('minlength')">
@@ -57,7 +57,7 @@ z-index: 999;
     
                 <div class="input-div">
                     <label for="">Phone number*</label>
-                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user!.mobileNumber" #contact="ngModel" id="contact" type="text" name="contact"  minlength="10" maxlength="10" appForbiddenName="etips" required placeholder="+27  |   Enter phone number"/>
+                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user!.userDetails.mobileNumber" #contact="ngModel" id="contact" type="text" name="contact"  minlength="10" maxlength="10" appForbiddenName="etips" required placeholder="+27  |   Enter phone number"/>
                     <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="errors">contact is required.</div>
                 
                   <div class="errors" *ngIf="contact.hasError('minlength')">
@@ -73,7 +73,7 @@ z-index: 999;
     
                 <div class="input-div">
                     <label for="" >Email*</label>
-                    <input [(ngModel)]="user!.email" #email="ngModel" id="email" type="text" name="email"  minlength="4" appForbiddenName="etips" required placeholder="Enter email" email/>
+                    <input [(ngModel)]="user!.userDetails.email" #email="ngModel" id="email" type="text" name="email"  minlength="4" appForbiddenName="etips" required placeholder="Enter email" email/>
                     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="errors">email is required.</div>
                 
                   <div class="errors" *ngIf="email.hasError('minlength')">
@@ -94,7 +94,7 @@ z-index: 999;
     
                 <div class="input-div">
                     <label for="">Password*</label>
-                    <input [(ngModel)]="user!.password" #password="ngModel" id="password" type="password" name="password"  minlength="8" appForbiddenName="etips" required placeholder="Enter Password"/>
+                    <input [(ngModel)]="passwords!.password" #password="ngModel" id="password" type="password" name="password"  minlength="8" appForbiddenName="etips" required placeholder="Enter Password"/>
                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errors">password is required.</div>
                 
                   <div class="errors" *ngIf="password.hasError('minlength')">
@@ -107,7 +107,7 @@ z-index: 999;
 
                 <div class="input-div">
                     <label for="" >Confirm password*</label>
-                    <input [(ngModel)]="user!.repassword" #repassword="ngModel" id="repassword" type="password" name="repassword"  minlength="8" appForbiddenName="etips" required placeholder="Confirm Password"/>
+                    <input [(ngModel)]="passwords!.repassword" #repassword="ngModel" id="repassword" type="password" name="repassword"  minlength="8" appForbiddenName="etips" required placeholder="Confirm Password"/>
                     <div *ngIf="repassword.invalid && (repassword.dirty || repassword.touched)" class="errors">password is required.</div>
                 
                   <div class="errors" *ngIf="repassword.hasError('minlength')">
@@ -133,19 +133,19 @@ z-index: 999;
                 </div> -->
 
                 <div class="checkbox">
-                    <input [(ngModel)]="user!.termsAndCon" #tandc="ngModel" id="tandc" name="tandc" type="checkbox" value="TAndC">
+                    <input [(ngModel)]="user!.settings.termsAndCon" #tandc="ngModel" id="tandc" name="tandc" type="checkbox" value="TAndC">
                     <label for="">Agree to<span><a href="https://www.ukheshe.com/etips-terms-and-conditions" target="_blank">Terms and Conditions</a></span></label>
                     <div *ngIf="!tandc.invalid && !tandc.touched" class="errors">*</div>
                 </div>
 
                 <div class="checkbox">
-                    <input [(ngModel)]="user!.privacy_policy" #privacypolicy="ngModel" id="privacypolicy" name="privacypolicy" type="checkbox" value="privacypolicy">
+                    <input [(ngModel)]="user!.settings.privacy_policy" #privacypolicy="ngModel" id="privacypolicy" name="privacypolicy" type="checkbox" value="privacypolicy">
                     <label for="">Consent to<span>Privacy Policy</span></label>
                     <div *ngIf="!privacypolicy.invalid && !privacypolicy.touched" class="errors">*</div>
                 </div>
 
                 <div class="checkbox">
-                    <input [(ngModel)]="user!.email_not" #emailnoti="ngModel" id="emailnoti" name="emailnoti" type="checkbox" value="opt-in">
+                    <input [(ngModel)]="user!.settings.email_not" #emailnoti="ngModel" id="emailnoti" name="emailnoti" type="checkbox" value="opt-in">
                     <label for="">Opt-in for Email Notifications or Promotions (optional)</label>
         
                 </div>

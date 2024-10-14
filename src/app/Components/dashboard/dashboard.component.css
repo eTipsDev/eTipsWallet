@@ -1,9 +1,14 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 main{
     padding: 0px 25px;
     background-color: #F7F7F2;
     justify-content: flex-start;
     height: 100vh;
-    padding-bottom: 15px;
 }
 
 .holder{
@@ -13,6 +18,9 @@ main{
     gap: 0;
     justify-content: flex-start;
     height: 100%;
+    margin: 0px;
+    background-color: #F7F7F2;
+    padding-bottom: 0px;
 }
 
 .headings{
@@ -25,7 +33,19 @@ main{
     align-items: center;
 }
 
+app-bottom-nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
+.bot2{
+    position: static;
+    bottom: 0;
+    background-color: transparent;
+    width: 100%;
+
+}
 
 .headings .lines{
     width: 100%;
@@ -47,9 +67,28 @@ main{
         padding: 0% 0px;
         background-color: #F7F7F2;
         width: 100%;
-            display: flex;
-            justify-content: center;
-        
+        display: flex;
+        justify-content: center;
+        /* position: fixed; */
+        z-index: 1000;
+    }
+
+    .img-gif{
+        width: 100%;
+    }
+
+    .p-tag{
+        padding: 0px 10%;
+        text-align: center;
+    }
+
+    .img-holder2{
+        /* background-color: red; */
+        padding: 0% 0px;
+        background-color: #F7F7F2;
+        /* width: 100%; */
+        display: flex;
+        justify-content: center;
     }
 
     .icon{
@@ -102,10 +141,10 @@ main{
    .form-item{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 90%;
         gap: 10px; 
         padding: 10px 10px;
-        height: auto;
+        height: 60%;
         background-color: #fff;
         border-radius: 8px;
         border: 1px solid gray;
@@ -120,10 +159,10 @@ main{
 .form-item{
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 90%;
         gap: 10px; 
         padding: 10px 10px;
-        height: auto;
+        height: 60%;
         background-color: #fff;
         border-radius: 8px;
         border: 1px solid gray;

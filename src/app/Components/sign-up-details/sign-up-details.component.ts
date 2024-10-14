@@ -19,23 +19,29 @@ export class SignUpDetailsComponent {
 
   constructor(private router:Router, 
     private authentication:AuthenticationService
-
   ){}
 
   loading:boolean = false;
   successful:boolean = false;
 
+  passwords:any = {
+    password:"",
+    repassword:"",
+  }
+
   user:NewUser = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    mobileNumber: "",
-    password: "",
-    repassword: "",
-    termsAndCon: false,
-    privacy_policy: false,
-    email_not: false,
-    kyc:false,
+    userDetails: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobileNumber: ''
+    },
+    settings: {
+      termsAndCon: false,
+      privacy_policy: false,
+      email_not: false
+    },
+    kyc: false
   };
 
   mRegister(form: any){
@@ -60,7 +66,7 @@ export class SignUpDetailsComponent {
   pageCount:number = 1;
 
   NextClick(form: any){
-    if(this.CurrentPage == 1 && (!this.user.privacy_policy || !this.user.termsAndCon)){
+    if(this.CurrentPage == 1 && (!this.user.settings.privacy_policy || !this.user.settings.termsAndCon)){
       return;
     }
     
@@ -69,14 +75,12 @@ export class SignUpDetailsComponent {
         this.CurrentPage += 1
       }
       else{
-        if(this.user.password != this.user.repassword){
+        if(this.passwords.password != this.passwords.repassword){
           return
         }
       }
     }
   }
-
-
 
   PreviousClick(){
 

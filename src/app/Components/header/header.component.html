@@ -1,28 +1,30 @@
-<div style="width: 100%; 
+<div style=" 
 display: flex; 
-flex-direction: column;
+flex-direction: row;
 padding: 10px;
-gap: 20px;">
+justify-content: center;
+align-items: center; text-align: center;">
 
-    <div style="display: flex; 
-    justify-content: space-around;">
+    <div style="display: flex; flex-direction: column;
+    justify-content: space-around; align-items: center; width: 100%; gap: 20px;">
       <img style="
       border: 3px solid #FFA500;
       border-radius: 50%;
       height: 60px;
-      width: 60px;
-      " 
+      width: 60px;" 
       src="../../../assets/images/Bearded-man-mascot-logo1_generated.jpg" />
       
-      <div style="display: flex; flex-direction: column; justify-content: center;">
-        <label style="font-size: 14px;">{{userData.firstName}} {{userData.lastName[0]}}</label>
-        <!-- <label  style="font-size: 12px;">&#64;LethaboM</label> -->
-      </div>
-    </div>
-    <div style="display: flex; justify-content: space-around;">
       <div routerLink="/qr-code" class="small-icons">
         <img  style="height: 15px;" src="../../../assets/images/qr-code.png"/>
         <label>Qr code</label>
+      </div>
+     
+    </div>
+
+    <div style="display: flex; justify-content: space-around; align-items: center; flex-direction: column; width: 100%; gap: 20px; height: 100%;">
+       <div style="display: flex; flex-direction: column; justify-content: center; min-height: 60px; flex: 1;">
+        <label style="font-size: 14px; height: 100%;">{{userData.firstName}} {{userData.lastName[0]}}</label>
+        <!-- <label  style="font-size: 12px;">&#64;LethaboM</label> -->
       </div>
 
       <div  routerLink="/tips" class="small-icons">

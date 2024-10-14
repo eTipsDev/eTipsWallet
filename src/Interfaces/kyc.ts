@@ -1,8 +1,15 @@
 export interface KYC {
-    "firstName": string,
-  "lastName": string,
-  "mobileNumber": string,
-  "image":string,
+
+  userDetails:{
+    "firstName":string,
+    "lastName":string,
+    "email":string,
+    "mobileNumber":string,
+    "image":string,
+    "idNumber": string,
+    "work": string,
+  },
+   
   "BankDetails":{
     "account_holder":string,
     "account_type":string,
@@ -10,9 +17,7 @@ export interface KYC {
     "branch":string,
     "bank":string,
   },
-  "idNumber": string,
   "externalUniqueId": string,
-  "work": string,
   "address": {
     "addressType": string, // options below
     "city": string,
