@@ -1,3 +1,4 @@
+
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -7,20 +8,21 @@ import { KycServService } from '../../../Services/EtipsBackend/kyc-serv.service'
 import { log } from 'console';
 import { finalize } from 'rxjs';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../../../Services/Firebase/FirebaseAuth/authentication.service';
+
 
 @Component({
-  selector: 'app-kyc-ui',
- 
-  templateUrl: './kyc-ui.component.html',
-  styleUrl: './kyc-ui.component.css'
+  selector: 'app-edit-details',
+  templateUrl: './edit-details.component.html',
+  styleUrl: './edit-details.component.css'
 })
-
-export class KycUIComponent implements OnInit{
+export class EditDetailsComponent  implements OnInit{
 
   loading:boolean = true;
 
   constructor(private firebase:RealtimeDBService,
     private kycService:KycServService,
+
     private route:Router
   ){}
 
@@ -55,20 +57,34 @@ export class KycUIComponent implements OnInit{
     passedAWSLiveness: false
   };
 
-
-
 ngOnInit(): void {
     setTimeout(()=>{
-    //   this.firebase.getLoggedUserDetails(this.firebase.mGetLoggedInUser().uid).then((data) => {
+      this.firebase.getLoggedUserDetails().then((data) => {
+console.log(data);
+        if(data){
+          
+          
+          this.user_kyc.userDetails = data.userDetails;
 
-    //     if(data){
-    //       this.user_kyc.firstName = data.firstName;
-    //       this.user_kyc.lastName = data.lastName
-    //     }
+          // this.user_kyc.userDetails.firstName = data.firstName;
+          // this.user_kyc.userDetails.firstName = data.lastName;
+          // this.user_kyc.userDetails.email = data.email;
+          // this.user_kyc.userDetails.mobileNumber = data.mobileNumber;
+          // this.user_kyc.userDetails.work = data.work;
 
+          this.user_kyc.BankDetails = data.BankDetails;
+          this.user_kyc.address = data.address;
+          // this.user_kyc.BankDetails.account_type = data.account_type;
+          // this.user_kyc.BankDetails.account_number = data.account_number;
+          // this.user_kyc.BankDetails.branch = data.branch;
+          // this.user_kyc.BankDetails.bank = data.bank;
+
+        }
+        console.log("yess");
+        
         this.loading = false;
       });
-    // },100)
+    },100)
   }
   uploaded = "/assets/images/ic-round-upload-file.svg";
 
@@ -90,21 +106,16 @@ ngOnInit(): void {
 
   CurrentPage = 0
 
-  pageCount:number = 2;
+  pageCount:number = 1;
 
   performKYC(form: any){
     if (form.valid) {
 
       alert("This will perform KYC")
 
-      let userID = this.user_kyc.userDetails.idNumber
-
-      this.user_kyc.userDetails.idNumber = ''
-      // this.firebase.uploadKYC(this.user_kyc).then((data) => {
-      // this.user_kyc.userDetails.idNumber = userID
-      //   this.UploadToBackend();
-      // });
-      
+      this.firebase.uploadKYC(this.user_kyc).then((data) => {
+        this.UploadToBackend();
+      });
       
     }
   }
@@ -116,7 +127,7 @@ ngOnInit(): void {
         this.CurrentPage += 1
       }
       else{
-      
+        
       }
     }
   }

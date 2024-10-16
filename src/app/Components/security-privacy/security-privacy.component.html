@@ -1,5 +1,42 @@
+<div *ngIf="selectedOption == 'change-password'" class="change-pass2">
+  <div class="change-pass">
+
+    <div class="input-div">
+      <label for="">New Password*</label>
+      <input [(ngModel)]="passwords!.password" #password="ngModel" id="password" type="password" name="password"  minlength="8" appForbiddenName="etips" required placeholder="Enter Password"/>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errors">password is required.</div>
+  
+    <div class="errors" *ngIf="password.hasError('minlength')">
+      minimum length is 8.
+    </div>
+    <div class="errors" *ngIf="password.hasError('forbiddenName')">
+      password cannot be etips.
+    </div>
+  </div>
+    
+    <div class="input-div">
+        <label for="" >Confirm password*</label>
+        <input [(ngModel)]="passwords!.repassword" #repassword="ngModel" id="repassword" type="password" name="repassword"  minlength="8" appForbiddenName="etips" required placeholder="Confirm Password"/>
+        <div *ngIf="repassword.invalid && (repassword.dirty || repassword.touched)" class="errors">password is required.</div>
+    
+      <div class="errors" *ngIf="repassword.hasError('minlength')">
+        minimum length is 8.
+      </div>
+      <div class="errors" *ngIf="repassword.hasError('forbiddenName')">
+        password cannot be etips.
+      </div>
+      <div class="errors" *ngIf="password.value != repassword.value">
+        password don't match.
+      </div>
+    </div>
+  </div>
+</div>
 <section class="bg-gray-100 h-screen flex justify-center items-center">
-    <div class="section p-6 h-screen w-full">
+  
+
+
+  
+  <div class="section p-6 h-screen w-full">
 
         <!-- Logo (Assumed to be an Image) -->
       
@@ -8,18 +45,18 @@
     
         <!-- Security Status Section -->
         <div class="mb-4">
-          <div class="flex justify-between items-center mb-4">
+          <!-- <div class="flex justify-between items-center mb-4">
             <div>
               <h3 class="text-gray-800 font-medium">Secure Launch</h3>
               <p crclass="text-sm text-gray-500">Enables fingerprint authentication</p>
             </div>
             <input type="checkbox" class="toggle-checkbox h-6 w-8 rounded-full bg-purple-500 checked:bg-purple-600 transition" checked>
-          </div>
+          </div> -->
     
           <div class="flex justify-between items-center">
             <div>
-              <h3 class="text-gray-800 font-medium">Two-Factor Authentication</h3>
-              <p class="text-sm text-gray-500">Requires OTP to login besides password</p>
+              <h3 class="text-gray-800 font-medium">Email Notification</h3>
+              <p class="text-sm text-gray-500">Email Notifications or Promotions</p>
             </div>
             <input type="checkbox" class="toggle-checkbox h-6 w-8 rounded-full bg-gray-300 checked:bg-purple-600 transition">
           </div>
@@ -28,7 +65,7 @@
         <!-- Login and Password Section -->
         <div class="mt-6 mb-4">
           <h4 class="text-gray-800 font-semibold mb-2">Login and Password</h4>
-          <div class="flex justify-between items-center mb-4">
+          <div (click)="selectComponent('change-password')" class="flex justify-between items-center mb-4">
             <span class="text-gray-800">Change Password</span>
             <button class="text-gray-500 pr-0">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -86,8 +123,21 @@
     
         <!-- Deactivate Account Button -->
         <div class="sect flex justify-center w-full">
-          <button class="text-red-600 text-sm">Deactivate my account</button>
+          <button class="text-red-600 text-sm">Delete my account</button>
         </div>
       </div>
     </section>
 
+    <div>
+      <div class="form-item">
+          <div class="headings">
+              <div class="lines"></div>
+              <label>Security</label>
+              <div class="lines"></div>
+          </div>
+
+      </div>
+    </div>
+  
+
+    

@@ -11,3 +11,55 @@ section{
 .sect{
     background-color: #F7F7F2;
 }
+
+.change-pass{
+    position: absolute;
+    height: auto;
+    z-index: 999;
+    width: 100%;
+    background-color: #F7F7F2;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.change-pass2{
+    position: absolute;
+    height: 100vh;
+    z-index: 999;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 10px 20px; */
+}
+
+.input-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.input-div label, .input-div p{
+    font-size: small;
+}
+
+
+.input-div p{
+    color: #a9a9a9;
+}
+
+.input-div input, select{
+    background-color: white;
+    padding: 2px 10px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0.5px solid #1C1C1C
+}

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from "../loader/loader.component";
 import { VerifyEmailComponent } from "../verify-email/verify-email.component";
 import { NewUser } from '../../../Interfaces/NewUser';
+import { getAuth, updateProfile } from "firebase/auth";
 
 @Component({
   selector: 'app-sign-up-details',
@@ -39,7 +40,7 @@ export class SignUpDetailsComponent {
     settings: {
       termsAndCon: false,
       privacy_policy: false,
-      email_not: false
+      email_notificaton: false
     },
     kyc: false
   };
@@ -62,6 +63,21 @@ export class SignUpDetailsComponent {
       });
     }
   }
+
+  // updateDetails(){
+   
+  //   const auth = getAuth();
+  //   updateProfile(auth.currentUser, {
+  //     displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+  //   }).then(() => {
+  //     // Profile updated!
+  //     // ...
+  //   }).catch((error) => {
+  //     // An error occurred
+  //     // ...
+  //   });
+  // }
+
 
   pageCount:number = 1;
 

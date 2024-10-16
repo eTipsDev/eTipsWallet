@@ -32,6 +32,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { TestComponentComponent } from './test-component/test-component.component';
 import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
+import { EditDetailsComponent } from './Components/edit-details/edit-details.component';
+import { SecurityPrivacyComponent } from './Components/security-privacy/security-privacy.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component
     WithdrawUIComponent,
     TestComponentComponent,
     BottomNavComponent,
+    EditDetailsComponent,
+    SecurityPrivacyComponent
   ],
   imports: [
     BrowserModule,

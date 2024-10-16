@@ -24,7 +24,6 @@ export class AuthenticationService {
     this.authentication = getAuth(firbaseInst.getFirebaseInstance());
   }
   
-
   async Login(email: string, password: string){
     return await signInWithEmailAndPassword(this.authentication, email, password);
   }
@@ -63,7 +62,6 @@ export class AuthenticationService {
  mLogout(){
    signOut(this.authentication).then(() => {
     //  this.logListener.mLogin(false)
-     
      this.router.navigate(['/home'])
    }, err => {
      alert(err.message)

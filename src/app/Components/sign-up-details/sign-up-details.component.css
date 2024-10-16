@@ -167,7 +167,7 @@ main{
     }
 
     .checkbox input{
-        background-color: red;
+        /* background-color: red; */
         height: 30px;
         width: 30px;
     }
