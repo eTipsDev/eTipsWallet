@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment.development';
 })
 export class KycServService {
 
-  private endPoint:string = "environment.ENDPOINT"
+  private endPoint:string = "https://e-tips-backend.vercel.app/api/v1/"
   // private token:string | undefined;
 
   constructor(private http:HttpClient) { 
