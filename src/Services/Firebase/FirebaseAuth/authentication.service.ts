@@ -29,6 +29,9 @@ export class AuthenticationService {
   }
 
   async mRegister(user: any, password:any){
+    console.log(user);
+    console.log(password);
+    
     return createUserWithEmailAndPassword(this.authentication, user.userDetails.email, password)
     .then(async (userCredential) => {
       // Signed up 
