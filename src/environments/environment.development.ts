@@ -13,8 +13,8 @@ export const environment = {
     appId: "",
     measurementId: ""
   },
-  // ENDPOINT="",
-  // ENDPOINT="https://e-tips-backend.vercel.app/api/v1/",
-  ENDPOINT:"http://localhost:3000/api/v1/"
+  ENDPOINT:"",
+  // ENDPOINT:"https://e-tips-backend.vercel.app/api/v1/",
+  // ENDPOINT:"http://localhost:3000/api/v1/"
 }
 
