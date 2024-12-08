@@ -26,6 +26,7 @@ export class EditDetailsComponent  implements OnInit{
     private route:Router
   ){}
 
+  isKYCPerformed:boolean = false;
   user_kyc:KYC = {
     userDetails: {
       firstName: '',
@@ -60,27 +61,15 @@ export class EditDetailsComponent  implements OnInit{
 ngOnInit(): void {
     setTimeout(()=>{
       this.firebase.getLoggedUserDetails().then((data) => {
-console.log(data);
+// console.log(data);
         if(data){
-          
-          
           this.user_kyc.userDetails = data.userDetails;
-
-          // this.user_kyc.userDetails.firstName = data.firstName;
-          // this.user_kyc.userDetails.firstName = data.lastName;
-          // this.user_kyc.userDetails.email = data.email;
-          // this.user_kyc.userDetails.mobileNumber = data.mobileNumber;
-          // this.user_kyc.userDetails.work = data.work;
+          this.isKYCPerformed = data.kyc;
 
           this.user_kyc.BankDetails = data.BankDetails;
           this.user_kyc.address = data.address;
-          // this.user_kyc.BankDetails.account_type = data.account_type;
-          // this.user_kyc.BankDetails.account_number = data.account_number;
-          // this.user_kyc.BankDetails.branch = data.branch;
-          // this.user_kyc.BankDetails.bank = data.bank;
 
         }
-        console.log("yess");
         
         this.loading = false;
       });
@@ -108,8 +97,9 @@ console.log(data);
 
   pageCount:number = 1;
 
+
   performKYC(form: any){
-    if (form.valid) {
+    if (form.valid && this.CurrentPage == 2) {
 
       alert("This will perform KYC")
 
@@ -145,7 +135,7 @@ console.log(data);
     formData.append("address", JSON.stringify(this.user_kyc.address)
     )
 
-    this.kycService.performKYC(formData).pipe(finalize(() => {
+    this.kycService.performKYC(formData, "").pipe(finalize(() => {
       this.loading = false;
     })
   ).subscribe({

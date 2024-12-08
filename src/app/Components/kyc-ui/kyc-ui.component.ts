@@ -21,7 +21,8 @@ export class KycUIComponent implements OnInit{
 
   constructor(private firebase:RealtimeDBService,
     private kycService:KycServService,
-    private route:Router
+    private route:Router,
+    private realtime:RealtimeDBService
   ){}
 
   user_kyc:KYC = {
@@ -59,16 +60,20 @@ export class KycUIComponent implements OnInit{
 
 ngOnInit(): void {
     setTimeout(()=>{
-    //   this.firebase.getLoggedUserDetails(this.firebase.mGetLoggedInUser().uid).then((data) => {
+      this.firebase.getLoggedUserDetails().then((data) => {
 
-    //     if(data){
-    //       this.user_kyc.firstName = data.firstName;
-    //       this.user_kyc.lastName = data.lastName
-    //     }
+        if(data){
+          this.user_kyc.userDetails.firstName = data.userDetails.firstName;
+          this.user_kyc.userDetails.lastName = data.userDetails.lastName
+          this.user_kyc.userDetails.mobileNumber = data.userDetails.mobileNumber
+
+          this.user_kyc.BankDetails.account_holder = data.userDetails.firstName + " " + data.userDetails.lastName;
+
+        }
 
         this.loading = false;
       });
-    // },100)
+    },100)
   }
   uploaded = "/assets/images/ic-round-upload-file.svg";
 
@@ -93,20 +98,31 @@ ngOnInit(): void {
   pageCount:number = 2;
 
   performKYC(form: any){
-    if (form.valid) {
+    // if (form.valid) {
 
       alert("This will perform KYC")
 
       let userID = this.user_kyc.userDetails.idNumber
 
       this.user_kyc.userDetails.idNumber = ''
-      // this.firebase.uploadKYC(this.user_kyc).then((data) => {
-      // this.user_kyc.userDetails.idNumber = userID
-      //   this.UploadToBackend();
-      // });
+      this.firebase.uploadKYC(this.user_kyc).then((data) => {
+      this.user_kyc.userDetails.idNumber = userID
+      // console.log('>> ', this.realtime.mGetCustomToken());
+      
+      this.realtime.mGetCustomToken().then((JWT_Token:any) => {
+      
+        if(JWT_Token)
+        {
+          this.UploadToBackend(JWT_Token);
+        }
+        
+        
+      });
+        
+      });
       
       
-    }
+    // }
   }
 
   NextClick(form: any){
@@ -121,7 +137,7 @@ ngOnInit(): void {
     }
   }
 
-  UploadToBackend(){
+  UploadToBackend(JWT_Token:any){
 
     this.loading = true;
     const formData = new FormData();
@@ -134,7 +150,7 @@ ngOnInit(): void {
     formData.append("address", JSON.stringify(this.user_kyc.address)
     )
 
-    this.kycService.performKYC(formData).pipe(finalize(() => {
+    this.kycService.performKYC(formData, JWT_Token).pipe(finalize(() => {
       this.loading = false;
     })
   ).subscribe({

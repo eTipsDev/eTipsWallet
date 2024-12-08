@@ -48,7 +48,7 @@ export class SignUpDetailsComponent {
   mRegister(form: any){
     if (form.valid ) {
       this.loading = true
-      this.authentication.mRegister(this.user).then((data) =>{
+      this.authentication.mRegister(this.user, this.passwords.password).then((data) =>{
         this.loading = false
 
         if(data == 200){

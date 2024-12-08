@@ -1,6 +1,14 @@
-section{
-    padding: 0px 25px;
+main{
+    padding: 0px 20px;
     background-color: #F7F7F2;
+    
+    align-items: flex-start;
     justify-content: flex-start;
     height: 100vh;
+    overflow: auto;
+}
+
+.bck-button{
+    position: absolute;
+    transform: rotate(180deg);
 }

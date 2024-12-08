@@ -24,6 +24,7 @@ section{
     flex-direction: column;
     padding: 10px 20px;
     border-radius: 10px;
+    gap: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -62,4 +63,36 @@ section{
     font-size: 16px;
     border-radius: 5px;
     border: 0.5px solid #1C1C1C
+}
+
+
+
+.btn-1{
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    color: white;
+    text-align: center;
+    background: var(--primary-color);
+    font-size: 14px;
+    color: rgb(255, 255, 255);  
+     
+}
+
+.btn-2{
+    border-radius: 5px;
+    width: 100%;
+    padding: 8px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    color: white;
+    text-align: center;
+    background-color: transparent;
+    border: 0.5px solid #1C1C1C;
+    font-size: 14px;
+    color: #1C1C1C;   
 }

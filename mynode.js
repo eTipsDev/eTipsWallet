@@ -7,6 +7,7 @@ const dotenv = require('dotenv').config({path: 'src/.env'}); ;
 const envFile = `export const environment = {
 
     firebase : ${process.env.firebase},
+    ENDPOINT: ${process.env.ENDPOINT}
 };
 `;
 const targetPath = path.join(__dirname, './src/environments/environment.development.ts');

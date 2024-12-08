@@ -8,6 +8,9 @@ import { AuthenticationService } from '../../../Services/Firebase/FirebaseAuth/a
   styleUrl: './security-privacy.component.css'
 })
 export class SecurityPrivacyComponent {
+UpdatePassword() {
+throw new Error('Method not implemented.');
+}
 
   constructor(private authentication:AuthenticationService,){}
 

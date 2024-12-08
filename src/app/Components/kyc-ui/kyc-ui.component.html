@@ -263,7 +263,7 @@
                             <button class="btn-2">Upload</button>
                         </div>
                         
-                        <input [(ngModel)]="user_kyc!.userDetails.image" #image="ngModel" id="image" name="image" required type="file" accept=".png, .jpeg, .jpg" (change)="loadImage($event)">
+                        <input [(ngModel)]="user_kyc!.userDetails.image" #image="ngModel" id="image" name="image" required type="file" accept=".png, .jpeg, .jpg, , .pdf" (change)="loadImage($event)">
 
                     </div>
                 </div>

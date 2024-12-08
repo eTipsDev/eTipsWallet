@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtime-db.service';
+import { log } from 'console';
 
 
 @Component({
@@ -48,6 +49,8 @@ export class DashboardComponent implements OnInit{
     //     this.visible = false
     // },  2000)
 
+    // console.log(this.userData);
+    
     setTimeout(()=> {
       this.realtime.getLoggedUserDetails().then((data) => {
         if(data){

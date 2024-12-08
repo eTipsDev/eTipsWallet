@@ -13,12 +13,17 @@ import { AuthenticationService } from '../../../Services/Firebase/FirebaseAuth/a
 
 
 export class AccountSettingComponent {
+
   constructor(private _location: Location,
     private authentication:AuthenticationService,
   ) { }
 
   goBack() {
     this._location.back();
+  }
+  
+  GoBack() {
+    this.activeTab = 'account-settings';
   }
 
   activeTab: string = 'account-settings';

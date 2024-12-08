@@ -56,6 +56,7 @@ export class RealtimeDBService {
   mGetLoggedInUser():any{
     const auth = getAuth();
     const user = auth.currentUser;
+    // console.log(user?.email);
     
     if (user !== null) {
       return user;
@@ -64,9 +65,26 @@ export class RealtimeDBService {
     return {};
   }
 
+  async mGetCustomToken():Promise<any>{
+
+    let userToken = null;
+
+    await this.mGetLoggedInUser()!.getIdToken().then((data:any) => {
+
+       userToken = data
+     
+    }).catch((error:any) => {
+      console.error(error);
+    });
+
+     return userToken
+
+  }
+
   async getLoggedUserDetails():Promise<any>{
 
     const userFound = this.mGetLoggedInUser().uid;
+    
     if(!userFound){
       return null
     }

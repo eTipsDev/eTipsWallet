@@ -9,14 +9,18 @@
 * {
     margin: 0px;
     font-family: 'Montserrat', sans-serif;
+    height: auto;
 }
 
+body{
+    background-color: #F7F7F2; 
+}
 
 main{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    
+    background-color: #F7F7F2;
     align-items: center;
     justify-content: center;
 }

@@ -43,24 +43,24 @@
           <div *ngIf="true" class="form-item2">
             
             <div class="top-card">
-                <label>R50</label>
+                <label>{{this.user_kyc.BankDetails.bank | titlecase}}</label>
                 <img class="visa-img" src="../../../assets/images/Visa.png"/>
                </div>
 
                <div  class="middle-card" >
-                <label>****   ****    ****   4782</label>
+                <label>****  ****  {{this.user_kyc.BankDetails.account_number.substring((this.user_kyc.BankDetails.account_number.length - 4),this.user_kyc.BankDetails.account_number.length)}}</label>
                 <img />
                </div>
 
                <div class="bottom-card">
                 <div>
                     <label>Card Holder</label>
-                    <p>Lethabo Mtshali</p>
+                    <p>{{this.user_kyc.BankDetails.account_holder | titlecase}}</p>
                 </div>
 
                 <div>
-                    <label>Expires</label>
-                    <p>01/21</p>
+                    <!-- <label>Expires</label> -->
+                    <p>{{this.user_kyc.BankDetails.account_type | titlecase}}</p>
                 </div>
                 
                </div>
@@ -102,3 +102,4 @@
 
       </div>
 </main>
+<app-bottom-nav></app-bottom-nav>

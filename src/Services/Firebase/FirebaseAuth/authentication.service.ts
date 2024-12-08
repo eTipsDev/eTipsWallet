@@ -28,8 +28,8 @@ export class AuthenticationService {
     return await signInWithEmailAndPassword(this.authentication, email, password);
   }
 
-  async mRegister(user: any){
-    return createUserWithEmailAndPassword(this.authentication, user.email, user.password)
+  async mRegister(user: any, password:any){
+    return createUserWithEmailAndPassword(this.authentication, user.userDetails.email, password)
     .then(async (userCredential) => {
       // Signed up 
       const Newuser = userCredential.user;
@@ -62,7 +62,7 @@ export class AuthenticationService {
  mLogout(){
    signOut(this.authentication).then(() => {
     //  this.logListener.mLogin(false)
-     this.router.navigate(['/home'])
+     this.router.navigate(['/sign-in'])
    }, err => {
      alert(err.message)
    })
@@ -75,6 +75,10 @@ export class AuthenticationService {
       //  this.router.navigate(['/login'])
      }
    });
+ }
+
+ getCustomToken(){
+  
  }
 
 

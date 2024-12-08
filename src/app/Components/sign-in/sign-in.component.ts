@@ -20,8 +20,8 @@ export class SignInComponent {
   loading:boolean = false;
 
   LoginDetails = {
-    email:"",
-    password:""
+    email:"sfisonxumalo69@gmail.com",
+    password:"04112password"
   }
 
   Login(form: any){

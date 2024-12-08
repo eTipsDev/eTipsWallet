@@ -24,9 +24,11 @@ export class HeaderComponent  {
   ngAfterViewInit(): void {
     setTimeout(()=>{
       this.realtime.getLoggedUserDetails().then((data) => {
+        // console.log(data);
+        
         if(data)
         {
-          this.userData = data
+          this.userData = data.userDetails
         }
         
       });

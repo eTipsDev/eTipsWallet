@@ -5,10 +5,11 @@
   <main>
       <div class="holder">
   
-          <div class="img-holder">
+          <!-- <div class="img-holder">
           <img class="icon" src="/assets/images/etips_logo_samples-06 1.svg"/>    
-          </div>
-
+          </div> -->
+          <h2 class="text-center text-lg font-semibold mb-4 mt-2">Update Details</h2>
+    
           <div class="input-div">
             
             <p>Please note that you can not update some fields, please contact support to update ommited details</p>
@@ -64,7 +65,7 @@
                     </div>
                   </div>
   
-                  <div class="input-div">
+                  <div *ngIf="isKYCPerformed" class="input-div">
                       <label for="">ID Number*</label>
                       <input disabled="true"  oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.userDetails.idNumber" #idNumber="ngModel" id="idNumber" type="text" name="idNumber" minlength="13" maxlength="13" appForbiddenName="etips" required placeholder="Enter id number"/>
                       <div *ngIf="idNumber.invalid && (idNumber.dirty || idNumber.touched)" class="errors">ID Number is required.</div>
@@ -80,7 +81,7 @@
                     </div>
                   </div>
       
-                  <div class="input-div">
+                  <div  *ngIf="isKYCPerformed" class="input-div">
                       <label for="">Street Address*</label>
                       <input [(ngModel)]="user_kyc!.address.line1" #street_a="ngModel" id="street_a" type="text" name="street_a"  minlength="2" appForbiddenName="etips" required type="text" placeholder="Enter street address"/>
                       <div *ngIf="street_a.invalid && (street_a.dirty || street_a.touched)" class="errors">Street address required.</div>
@@ -92,7 +93,7 @@
                           </div>
                   </div>
   
-                  <div class="input-div">
+                  <div *ngIf="isKYCPerformed" class="input-div">
                     <label for="">City*</label>
                     <input [(ngModel)]="user_kyc!.address.city" #city="ngModel" id="city" type="text" name="city"  minlength="4" appForbiddenName="etips" required type="text" placeholder="Enter city e.g Johannesburg"/>
                     <div *ngIf="city.invalid && (city.dirty || city.touched)" class="errors">City is required.</div>
@@ -105,7 +106,7 @@
                 </div>
   
   
-                <div class="input-div">
+                <div *ngIf="isKYCPerformed" class="input-div">
                   <label for="">Province*</label>
                   <!-- <input type="text" placeholder="Select Bank"/> -->
                    <select [(ngModel)]="user_kyc!.address.state" #province="ngModel" id="province" type="text" name="province">
@@ -127,7 +128,7 @@
               </div>
   
   
-                <div class="input-div">
+                <div *ngIf="isKYCPerformed" class="input-div">
                   <label for="">Postal code*</label>
                   <input oninput="this.value=this.value.replace(/[^0-9]/g,'')" [(ngModel)]="user_kyc!.address.code" #code="ngModel" id="code" type="text" name="code"  minlength="2" appForbiddenName="etips" required type="text" placeholder="Enter postal code"/>
                   <div *ngIf="code.invalid && (code.dirty || code.touched)" class="errors">postal code is required.</div>
@@ -141,7 +142,7 @@
   
               
   
-              <div class="input-div">
+              <div *ngIf="isKYCPerformed" class="input-div">
                           <label for="">Country*</label>
                           <!-- <input type="text" placeholder="Select Bank"/> -->
                           <select [(ngModel)]="user_kyc!.address.country" #country="ngModel" id="country" type="text" name="country">
@@ -153,7 +154,7 @@
                               </div>
                       </div>
   
-                      <div class="input-div">
+                      <div *ngIf="isKYCPerformed" class="input-div">
                         <label for="">Current Work Place*</label>
                         <input [(ngModel)]="user_kyc!.userDetails.work" #work="ngModel" id="work" type="text" name="work"  minlength="2" appForbiddenName="etips" required placeholder="Enter work place"/>
                         <div *ngIf="work.invalid && (work.dirty || work.touched)" class="errors"> Current work place is required</div>
@@ -167,7 +168,7 @@
                     </div>
               </div>
   
-              <div *ngIf="CurrentPage == 1" class="form-item">
+              <div *ngIf="CurrentPage == 1 && isKYCPerformed" class="form-item">
                 <div class="headings">
                     <div class="lines"></div>
                     <label>Personal Banking Details</label>
@@ -250,14 +251,15 @@
             </div>
   
  
-              <div class="btn-holder">
-                  <button (click)="PreviousClick()" class="btn-2">Cancel</button>
+              <div *ngIf="isKYCPerformed" class="btn-holder">
+                  <button *ngIf="CurrentPage == 0" (click)="PreviousClick()" class="btn-2">Cancel</button>
+                  <button *ngIf="CurrentPage != 0"  (click)="PreviousClick()" class="btn-2">Previous</button>
                   <div *ngIf="CurrentPage != 2" type="submit" (click)="NextClick(userForm)" class="btn-1 nxt">Next</div>
                   <button  *ngIf="CurrentPage == 2" type="submit" class="btn-1">Submit</button>
               </div>
   
           </form>
-  <div class="prog-indicators">
+  <div *ngIf="isKYCPerformed" class="prog-indicators">
                   <br>
                   <br>
                   <div class="indicator {{CurrentPage >= 0 ? 'indicator-on' : 'indicator-off'}}"></div>
