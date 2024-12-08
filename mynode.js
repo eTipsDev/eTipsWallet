@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config({path: 'src/.env'}); ;
 
 const envFile = `export const environment = {
 
-    firebase : ${process.env.firebase},
+    firebase : ${process.env.firebase}
     ENDPOINT: ${process.env.ENDPOINT}
 };
 `;
