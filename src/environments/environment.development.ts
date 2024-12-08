@@ -2,8 +2,6 @@ export const environment = {
 
 
   firebase:{
-
-
         apiKey: "",
     authDomain: "",
     databaseURL: "",
@@ -13,7 +11,7 @@ export const environment = {
     appId: "",
     measurementId: ""
   },
-  ENDPOINT:"",
+  ENDPOINT:""
   // ENDPOINT:"https://e-tips-backend.vercel.app/api/v1/",
   // ENDPOINT:"http://localhost:3000/api/v1/"
 }
