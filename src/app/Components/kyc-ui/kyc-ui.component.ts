@@ -7,6 +7,7 @@ import { KycServService } from '../../../Services/EtipsBackend/kyc-serv.service'
 import { log } from 'console';
 import { finalize } from 'rxjs';
 import { Router } from '@angular/router';
+import { BackLocationService } from '../../../Services/BackLocation/back-location.service';
 
 @Component({
   selector: 'app-kyc-ui',
@@ -22,7 +23,8 @@ export class KycUIComponent implements OnInit{
   constructor(private firebase:RealtimeDBService,
     private kycService:KycServService,
     private route:Router,
-    private realtime:RealtimeDBService
+    private realtime:RealtimeDBService,
+    private back:BackLocationService
   ){}
 
   user_kyc:KYC = {
@@ -31,7 +33,8 @@ export class KycUIComponent implements OnInit{
       lastName: '',
       email: '',
       mobileNumber: '',
-      image: '',
+      id_image: '',
+      photo: '',
       idNumber: '',
       work: ''
     },
@@ -53,10 +56,9 @@ export class KycUIComponent implements OnInit{
       line3: '',
       state: ''
     },
+    customerId:'',
     passedAWSLiveness: false
   };
-
-
 
 ngOnInit(): void {
     setTimeout(()=>{
@@ -75,27 +77,10 @@ ngOnInit(): void {
       });
     },100)
   }
-  uploaded = "/assets/images/ic-round-upload-file.svg";
-
-  imageID = "..//assets/images/gallery-2.png";
-
-  async loadImage(event:any){
-    const selectedFile = event.target.files[0];
-    const reader = new FileReader();
-
-    this.user_kyc.userDetails.image = event.target.files[0]
-    
-    reader.onload = async (event:any) => {
-
-     this.imageID = event.target.result
-    }
-    this.uploaded = "/assets/images/pablita-big-blue-tick.gif";
-   reader.readAsDataURL(selectedFile);
-  }
 
   CurrentPage = 0
 
-  pageCount:number = 2;
+  pageCount:number = 1;
 
   performKYC(form: any){
     // if (form.valid) {
@@ -138,41 +123,36 @@ ngOnInit(): void {
   }
 
   UploadToBackend(JWT_Token:any){
-
     this.loading = true;
+
     const formData = new FormData();
     formData.append("firstName", this.user_kyc.userDetails.firstName)
     formData.append("lastName", this.user_kyc.userDetails.lastName)
     formData.append("mobileNumber", this.user_kyc.userDetails.mobileNumber)
     formData.append("idNumber", this.user_kyc.userDetails.idNumber)
     formData.append("externalUniqueId", this.user_kyc.externalUniqueId)
-    formData.append("image", this.user_kyc.userDetails.image)
-    formData.append("address", JSON.stringify(this.user_kyc.address)
-    )
 
-    this.kycService.performKYC(formData, JWT_Token).pipe(finalize(() => {
+    formData.append("address", JSON.stringify(this.user_kyc.address))
+
+    this.kycService.registerCustomer(formData, JWT_Token).pipe(finalize(() => {
       this.loading = false;
     })
   ).subscribe({
-        next: (message) => {
-          // this.products = product,
-
-          this.firebase.kycComplete({kyc:true}).then((data) => {
+        next: (response) => {
+          this.firebase.kycComplete({customerRegister:true, customerId:response.timestamp}).then((data) => {
             alert("updated ")
-            console.log(data);
+            // console.log(data);
             
           })
-          alert(message);
-          this.route.navigate(['/dashboard'])
-          
+          console.log(response);
+          this.route.navigate(['/upload-documents'])
         },
         error: (err) => {
-          if(err.status == 401)
-          {
-           
+          if(err.status == 401) { 
+
           }
-          else{
-           
+          else { 
+
           }
 
           alert("Failed KYC")
@@ -180,18 +160,17 @@ ngOnInit(): void {
           
           // this.blLoadComplete = false
         },
-      
       })
   }
 
-
+  goBack(){
+    this.back.goBack()
+  }
 
   PreviousClick(){
-
-    if(this.CurrentPage > 0){
+    if(this.CurrentPage > 0) {
       this.CurrentPage -= 1
     }
-    
   }
 
 }

@@ -11,5 +11,7 @@ export interface NewUser {
         privacy_policy:Boolean,
         email_notificaton:boolean,
     }
-    kyc:boolean 
+    kyc:boolean ,
+    customerRegister: boolean,
+    uploadedDoc: boolean,
 }

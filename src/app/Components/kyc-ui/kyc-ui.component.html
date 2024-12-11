@@ -244,48 +244,19 @@
               </div>
           </div>
 
-            <div *ngIf="CurrentPage == 2" class="form-item">
-                <div class="headings">
-                    <div class="lines"></div>
-                    <label>Additional verification</label>
-                    <div class="lines"></div>
-                </div>
-    
-                <div class="input-div">
-                    <label for="">Upload a Photo ID (Driver's License, Passport, etc.)</label>
-
-                    <div class="btn-upload">
-                        <div class="upload-content">
-                            <img [src]="uploaded">
-
-                            <label>Browse device to upload files</label>
-                            <label>Only JPEG, PNG, GIF and PDF with max size of 15 MB</label>
-                            <button class="btn-2">Upload</button>
-                        </div>
-                        
-                        <input [(ngModel)]="user_kyc!.userDetails.image" #image="ngModel" id="image" name="image" required type="file" accept=".png, .jpeg, .jpg, , .pdf" (change)="loadImage($event)">
-
-                    </div>
-                </div>
-               
-                <div class="input-div">
-                    <label for="">Verifications will take upto 24 hours to be verified</label>
-                </div>
-            </div>
-
             <div class="btn-holder">
-                <button (click)="PreviousClick()" class="btn-2">Cancel</button>
-                <div *ngIf="CurrentPage != 2" type="submit" (click)="NextClick(userForm)" class="btn-1 nxt">Next</div>
-                <button  *ngIf="CurrentPage == 2" type="submit" class="btn-1">Submit</button>
+                <div (click)="goBack()" *ngIf="CurrentPage != 1" class="btn-2 nxt">Cancel</div>
+                <div (click)="PreviousClick()" *ngIf="CurrentPage == 1" class="btn-2 nxt">Previous</div>
+                <div *ngIf="CurrentPage != 1" type="submit" (click)="NextClick(userForm)" class="btn-1 nxt">Next</div>
+                <button  *ngIf="CurrentPage == 1" type="submit" class="btn-1">Submit</button>
             </div>
 
         </form>
-<div class="prog-indicators">
+            <div class="prog-indicators">
                 <br>
                 <br>
                 <div class="indicator {{CurrentPage >= 0 ? 'indicator-on' : 'indicator-off'}}"></div>
                 <div class="indicator {{CurrentPage >= 1 ? 'indicator-on' : 'indicator-off'}}"></div>
-                <div class="indicator {{CurrentPage >= 2 ? 'indicator-on' : 'indicator-off'}}"></div>
                 <!-- <div class="indicator {{CurrentPage >= 2 ? 'indicator-on' : 'indicator-off'}}"></div> -->
             </div>
 

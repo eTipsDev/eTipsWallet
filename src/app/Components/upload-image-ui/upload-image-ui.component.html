@@ -1,0 +1,101 @@
+<div *ngIf="loading" class="app-loader">
+    <app-loader></app-loader>
+  </div>
+  
+  <main>
+      <div class="holder">
+  
+          <div class="img-holder">
+          <img class="icon" src="/assets/images/etips_logo_samples-06 1.svg"/>    
+          </div>
+          
+  
+          <form #userForm="ngForm" (ngSubmit)="performKYC(userForm)">
+
+  
+              <div *ngIf="CurrentPage == 0 && !this.awsLiveness.completionUrl" class="form-item">
+                  <div class="headings">
+                      <div class="lines"></div>
+                      <label>Additional verification</label>
+                      <div class="lines"></div>
+                  </div>
+      
+                  <div class="input-div">
+                      <label for="">Upload a Photo ID (Driver's License, Passport, etc.)</label>
+  
+                      <div class="btn-upload">
+                          <div class="upload-content">
+                              <img [src]="uploaded">
+  
+                              <label>Browse device to upload files</label>
+                              <label>Only PDF with max size of 5 MB</label>
+                              <button class="btn-2">Upload</button>
+                          </div>
+                          
+                          <input [(ngModel)]="user_kyc!.userDetails.id_image" #id_image="ngModel" id="id_image" name="id_image" required type="file" accept=".pdf" (change)="loadID($event)">
+  
+                      </div>
+                  </div>
+                 
+                  <div class="input-div">
+                      <label for="">Verifications will take upto 24 hours to be verified</label>
+                  </div>
+              </div>
+
+              <div *ngIf="CurrentPage == 1 && !this.awsLiveness.completionUrl" class="form-item">
+                <div class="headings">
+                    <div class="lines"></div>
+                    <label>Additional verification</label>
+                    <div class="lines"></div>
+                </div>
+    
+                <div class="input-div">
+                    <label for="">Upload a selfie photo</label>
+
+                    <div class="btn-upload">
+                        <div class="upload-content">
+                            <img [src]="uploaded">
+
+                            <label>Browse device to upload files</label>
+                            <label>Only JPEG, PNG, and JPG with max size of 5 MB</label>
+                            <button class="btn-2">Upload</button>
+                        </div>
+                        
+                        <input [(ngModel)]="user_kyc!.userDetails.photo" #photo="ngModel" id="photo" name="photo" required type="file" accept=".jpg, .png, .jpeg" (change)="loadPhoto($event)">
+
+                    </div>
+                </div>
+            
+                <div class="input-div">
+                    <label for="">Verifications will take upto 24 hours to be verified</label>
+                </div>
+            </div>
+
+            <div *ngIf="this.awsLiveness.completionUrl" class="form-item">
+            
+                <div class="input-div">
+                    <a href="{{awsLiveness.completionUrl}}">Verify</a>
+                </div>
+            </div>
+  
+              <div class="btn-holder">
+                  <div (click)="goBack()" *ngIf="CurrentPage != 1" class="btn-2 nxt">Cancel</div>
+                  <div (click)="PreviousClick()" *ngIf="CurrentPage == 1" class="btn-2 nxt">Previous</div>
+                  <div *ngIf="CurrentPage != 1" type="submit" (click)="NextClick(userForm)" class="btn-1 nxt">Next</div>
+                  <button  *ngIf="CurrentPage == 1" type="submit" class="btn-1">Submit</button>
+              </div>
+  
+          </form>
+          
+            <div class="prog-indicators">
+                  <br>
+                  <br>
+                  <div class="indicator {{CurrentPage >= 0 ? 'indicator-on' : 'indicator-off'}}"></div>
+                  <div class="indicator {{CurrentPage >= 1 ? 'indicator-on' : 'indicator-off'}}"></div>
+                  <!-- <div class="indicator {{CurrentPage >= 2 ? 'indicator-on' : 'indicator-off'}}"></div> -->
+              </div>
+  
+          </div>
+  </main>
+  <app-bottom-nav></app-bottom-nav>
+  <app-bottom-nav class="bot2"></app-bottom-nav>

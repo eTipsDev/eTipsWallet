@@ -15,6 +15,7 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { TipsUIComponent } from './Components/tips-ui/tips-ui.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { WithdrawUIComponent } from './Components/withdraw-ui/withdraw-ui.component';
+import { UploadImageUIComponent } from './Components/upload-image-ui/upload-image-ui.component';
 
 const routes: Routes = [
   // {path:"welcome", component:WelcomeComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
     {path:"reference", component:ReferenceComponent},
     {path:"security-privacy", component:SecurityPrivacyComponent},
     // {path:"verify-account", component:VerifyEmailComponent},
+    {path:"upload-documents", component:UploadImageUIComponent},
     { path:'', redirectTo:'/sign-in', pathMatch: 'full' }
 ];
 

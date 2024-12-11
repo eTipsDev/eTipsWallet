@@ -5,11 +5,11 @@ export interface KYC {
     "lastName":string,
     "email":string,
     "mobileNumber":string,
-    "image":string,
+    "id_image": string,
+    "photo": string,
     "idNumber": string,
     "work": string,
   },
-   
   "BankDetails":{
     "account_holder":string,
     "account_type":string,
@@ -28,5 +28,6 @@ export interface KYC {
     "line3": string, // not required, can be empty string
     "state": string //province
   },
+  "customerId":string
   passedAWSLiveness:boolean
 }

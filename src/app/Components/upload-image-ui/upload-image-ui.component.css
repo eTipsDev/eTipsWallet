@@ -1,0 +1,318 @@
+
+main{
+    padding: 0px 20px;
+    background-color: #F7F7F2;
+    justify-content: flex-start;
+    /* width: 100%; */
+    height: auto;
+    /* background-image: url('/assets/images/image.png'); */
+}
+
+.holder{
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    gap: 0;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.bot2{
+    background-color: transparent;
+    opacity: 0;
+}
+
+.headings{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    padding: 5px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.headings .lines{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(226, 226, 226);
+    
+}
+
+.headings label{
+    text-wrap:nowrap;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* @media only screen and (max-width:700px){ */
+
+    .img-holder{
+        /* background-color: red; */
+        padding: 2% 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #F7F7F2;
+    }
+
+    .icon{
+        height: 55px;
+    }
+
+    .bot2{
+        background-color: #F7F7F2;
+        opacity: 0;
+    }
+
+    .title{
+        font-size: 28px; 
+        font-weight: 500; 
+        line-height: 28px; 
+        text-align: center; 
+        display: flex; 
+        align-items: center; 
+        letter-spacing: 0em;
+        color: black;
+    }
+
+    .btn-holder{
+        display: flex;
+        gap: 20%;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    button, .nxt{
+        border-radius: 5px;
+        width: 100%;
+        padding: 8px;
+        font-size: 18px;
+        outline: none;
+        border: none;
+        color: white;
+        text-align: center;
+    }
+
+    .btn-1{
+        background: var(--primary-color);
+        font-size: 14px;
+        color: rgb(255, 255, 255);   
+    }
+
+    .btn-2{
+        background-color: transparent;
+        border: 0.5px solid #1C1C1C;
+        font-size: 14px;
+        color: #1C1C1C;   
+    }
+
+    form, .form-item{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px; 
+        padding: 0px 0px;
+        height: 100%;
+
+    }
+
+    form .form-item{
+        padding: 0px 0px;
+    }
+
+    .input-div{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .input-div label{
+        font-size: small;
+    }
+
+    .input-div input, select{
+        background-color: white;
+        padding: 2px 10px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 0.5px solid #1C1C1C
+    }
+
+    .prog-indicators{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 10%;
+    }
+
+    .indicator{
+        height: 5px;
+        width: 15%;
+        border-radius: 5px;
+    }
+
+    .indicator-on{
+        background-color: #FFA500 ;
+    }
+    .indicator-off{
+        background-color: #D8D8D8;
+    }
+
+    label span{
+        color: var(--primary-color);
+    }
+
+    .checkbox{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 0px;
+    }
+
+    .checkbox label{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        font-size: small;
+        align-items: center;
+    }
+
+    .checkbox input{
+        background-color: red;
+        height: 30px;
+        width: 30px;
+    }
+
+    .ver-holder{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .ver-holder input{
+        width: 100%;
+        text-align: center;
+    }
+
+    .rb-holder{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+    .rb{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px;
+        width: auto;
+        
+    }
+
+    .rb label{
+        font-size: larger;
+        /* background-color: #FFA500; */
+        
+
+    }
+
+    .rb input{
+        padding: 2px 10px;
+        height: 13px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 0.5px solid #1C1C1C;
+        width: auto;
+        background-color: white;
+    }
+
+    .btn-upload{
+        background-color: transparent;
+        height: 350px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        background-color: transparent;
+        border: 2px dashed #c3c2c2;
+        border-radius: 5px;
+    }
+    
+    /* .btn-upload:hover{
+        opacity: 1;
+        background-color: gray;
+        
+    } */
+    
+    .btn-upload input {
+        height: 100%;
+        width: auto;
+        color: transparent;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+
+
+      }
+
+      .btn-upload .upload-content label{
+        font-size: 13px;
+        color: #868686;
+        /* color: #D8D8D8; */
+      }
+    
+      .btn-upload .upload-content label:nth-child(3){
+        font-size: 12px;
+        color: var(--primary-color);
+        /* color: #D8D8D8; */
+      }
+
+      .btn-upload .upload-content img {
+       z-index: 1000;
+       cursor: pointer;
+       width: auto;
+       height: 70px;
+      }
+    
+    
+    .btn-upload input::file-selector-button {
+        position: absolute;
+     
+        color: transparent;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        height: auto;
+      }
+
+      .btn-upload .btn-2{
+        /* width: 30%; */
+      }
+
+      .upload-content{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: auto;
+        background-color: transparent;
+        justify-content: center;
+        cursor: pointer;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        padding: 0px 27px;
+        text-align: center;
+
+      }
+/* } */

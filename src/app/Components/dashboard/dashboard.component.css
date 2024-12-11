@@ -78,6 +78,11 @@ app-bottom-nav{
         width: 100%;
     }
 
+    .img-img{
+        transform: rotate(8deg);
+        width: 80%;
+    }
+
     .p-tag{
         padding: 0px 10%;
         text-align: center;

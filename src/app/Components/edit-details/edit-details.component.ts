@@ -33,7 +33,8 @@ export class EditDetailsComponent  implements OnInit{
       lastName: '',
       email: '',
       mobileNumber: '',
-      image: '',
+      id_image: '',
+      photo: '',
       idNumber: '',
       work: ''
     },
@@ -46,7 +47,7 @@ export class EditDetailsComponent  implements OnInit{
     },
     externalUniqueId: '',
     address: {
-      addressType: '',
+      addressType: 'PRIMARY',
       city: '',
       code: '',
       country: '',
@@ -55,7 +56,8 @@ export class EditDetailsComponent  implements OnInit{
       line3: '',
       state: ''
     },
-    passedAWSLiveness: false
+    passedAWSLiveness: false,
+    customerId: ''
   };
 
 ngOnInit(): void {
@@ -79,19 +81,19 @@ ngOnInit(): void {
 
   imageID = "..//assets/images/gallery-2.png";
 
-  async loadImage(event:any){
-    const selectedFile = event.target.files[0];
-    const reader = new FileReader();
+  // async loadImage(event:any){
+  //   const selectedFile = event.target.files[0];
+  //   const reader = new FileReader();
 
-    this.user_kyc.userDetails.image = event.target.files[0]
+  //   this.user_kyc.userDetails.image = event.target.files[0]
     
-    reader.onload = async (event:any) => {
+  //   reader.onload = async (event:any) => {
 
-     this.imageID = event.target.result
-    }
-    this.uploaded = "/assets/images/pablita-big-blue-tick.gif";
-   reader.readAsDataURL(selectedFile);
-  }
+  //    this.imageID = event.target.result
+  //   }
+  //   this.uploaded = "/assets/images/pablita-big-blue-tick.gif";
+  //  reader.readAsDataURL(selectedFile);
+  // }
 
   CurrentPage = 0
 
@@ -131,11 +133,11 @@ ngOnInit(): void {
     formData.append("mobileNumber", this.user_kyc.userDetails.mobileNumber)
     formData.append("idNumber", this.user_kyc.userDetails.idNumber)
     formData.append("externalUniqueId", this.user_kyc.externalUniqueId)
-    formData.append("image", this.user_kyc.userDetails.image)
+    // formData.append("image", this.user_kyc.userDetails.image)
     formData.append("address", JSON.stringify(this.user_kyc.address)
     )
 
-    this.kycService.performKYC(formData, "").pipe(finalize(() => {
+    this.kycService.registerCustomer(formData, "").pipe(finalize(() => {
       this.loading = false;
     })
   ).subscribe({

@@ -42,7 +42,10 @@ export class SignUpDetailsComponent {
       privacy_policy: false,
       email_notificaton: false
     },
-    kyc: false
+    kyc: false,
+    customerRegister: false,
+    uploadedDoc: false,
+
   };
 
   mRegister(form: any){

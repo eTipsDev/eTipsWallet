@@ -24,7 +24,8 @@ export class TipsUIComponent implements OnInit{
       lastName: '',
       email: '',
       mobileNumber: '',
-      image: '',
+      id_image: '',
+      photo: '',
       idNumber: '',
       work: ''
     },
@@ -46,7 +47,8 @@ export class TipsUIComponent implements OnInit{
       line3: '',
       state: ''
     },
-    passedAWSLiveness: false
+    passedAWSLiveness: false,
+    customerId: ''
   };
   
   ngOnInit(): void {
@@ -54,7 +56,6 @@ export class TipsUIComponent implements OnInit{
       this.firebase.getLoggedUserDetails().then((data) => {
       // console.log(data);
         if(data){
-          
           
           this.user_kyc = data
           // this.isKYCPerformed = data.kyc;

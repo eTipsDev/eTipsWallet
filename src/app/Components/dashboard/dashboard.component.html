@@ -18,14 +18,21 @@
               <app-header style="width: 100%;"></app-header>
                <!-- <app-test-component ></app-test-component> -->
 
-              <div *ngIf="!userData.kyc" class="form-item no-data">
+              <div *ngIf="!userData.customerRegister" class="form-item no-data">
                   <img class="img-gif" src="../../../assets/images/dazzle-smartphone-with-financial-analytics-showing-income.gif"/>
                   <div class="btn-holder">
                     <button type="submit" routerLink="/kyc" class="btn-1">Start earning tips</button>
                 </div>
-            </div>
+              </div>
+
+              <div *ngIf="userData.customerRegister && !userData.uploadedDoc" class="form-item no-data">
+                <img class="img-img" src="../../../assets/images/3d-fluency-pdf-file.png"/>
+                <div class="btn-holder">
+                  <button type="submit" routerLink="/upload-documents" class="btn-1">Upload documents</button>
+                </div>
+              </div>
   
-          <div *ngIf="userData.kyc" class="form-item">
+          <div *ngIf="userData.customerRegister && userData.uploadedDoc" class="form-item">
              
               <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
                 <div *ngIf="visible" style="position: absolute;" class="loader"></div>
@@ -44,7 +51,7 @@
               </div>
           </div>
 
-          <div *ngIf="userData.kyc" class="form-item form-img">
+          <div *ngIf="userData.customerRegister && userData.uploadedDoc" class="form-item form-img">
                 <div style="display: flex; gap: 5px; align-items: center;">
                   <p>Sharing tips with your colleagues</p>
                 </div>
@@ -54,7 +61,7 @@
               </div>
           </div>
 
-          <div *ngIf="userData.kyc" class="form-item">
+          <div *ngIf="userData.customerRegister && userData.uploadedDoc" class="form-item">
               <h5>Lethabo's Score</h5>
 
               <!-- <img src="../../../assets/images/unsplash_-rF4kuvgHhU.png"/> -->

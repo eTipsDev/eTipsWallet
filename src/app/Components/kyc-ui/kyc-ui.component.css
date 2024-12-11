@@ -17,6 +17,11 @@ main{
     height: 100%;
 }
 
+.bot2{
+    background-color: transparent;
+    opacity: 0;
+}
+
 .headings{
     display: flex;
     flex-direction: row;

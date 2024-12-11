@@ -34,6 +34,7 @@ import { TestComponentComponent } from './test-component/test-component.componen
 import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component';
 import { EditDetailsComponent } from './Components/edit-details/edit-details.component';
 import { SecurityPrivacyComponent } from './Components/security-privacy/security-privacy.component';
+import { UploadImageUIComponent } from './Components/upload-image-ui/upload-image-ui.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { SecurityPrivacyComponent } from './Components/security-privacy/security
     TestComponentComponent,
     BottomNavComponent,
     EditDetailsComponent,
-    SecurityPrivacyComponent
+    SecurityPrivacyComponent,
+    UploadImageUIComponent
   ],
   imports: [
     BrowserModule,

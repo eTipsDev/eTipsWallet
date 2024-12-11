@@ -9,7 +9,8 @@ import { environment } from '../../environments/environment.development';
 })
 export class KycServService {
 
-  private endPoint:string = "https://e-tips-backend.vercel.app/api/v1/"
+  // private endPoint:string = "https://e-tips-backend.vercel.app/api/v1/"
+  private endPoint:string = "http://localhost:2024/api/v1/customer"
   // private token:string | undefined;
 
   constructor(private http:HttpClient) { 
@@ -25,13 +26,29 @@ export class KycServService {
     // });
   }
 
-  performKYC(body:any, token:any):Observable<any>{
+  registerCustomer(body:any, token:any):Observable<any>{
     const headers = new HttpHeaders()
     .append('Authorization', 'Bearer ' + token)
     .append('Accept', '*/*')
 
-    console.log(token);
     
-    return this.http.post(this.endPoint + "customer/", body, {headers})
+    return this.http.post(this.endPoint + "/", body, {headers})
+  }
+
+  uploadDocs(body:any, token:any):Observable<any>{
+    const headers = new HttpHeaders()
+    .append('Authorization', 'Bearer ' + token)
+    .append('Accept', '*/*')
+
+    
+    return this.http.post(this.endPoint + "/docs/", body, {headers})
+  }
+
+  performAWSLiveness(customerId:any, token:any){
+    const headers = new HttpHeaders()
+    .append('Authorization', 'Bearer ' + token)
+    .append('Accept', '*/*')
+
+    return this.http.get(this.endPoint + `/liveness?customerId=${customerId}`, {headers})
   }
 }
