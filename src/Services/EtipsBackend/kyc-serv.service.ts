@@ -9,8 +9,8 @@ import { environment } from '../../environments/environment.development';
 })
 export class KycServService {
 
-  // private endPoint:string = "https://e-tips-backend.vercel.app/api/v1/"
-  private endPoint:string = "http://localhost:2024/api/v1/customer"
+  private endPoint:string = "https://e-tips-backend.vercel.app/api/v1/customer"
+  // private endPoint:string = "http://localhost:2024/api/v1/customer"
   // private token:string | undefined;
 
   constructor(private http:HttpClient) { 
