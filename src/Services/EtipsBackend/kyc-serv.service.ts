@@ -11,7 +11,6 @@ export class KycServService {
 
   private endPoint:string = "http://ec2-13-247-88-165.af-south-1.compute.amazonaws.com:2024/api/v1/customer"
   // private endPoint:string = "http://localhost:2024/api/v1/customer"
-  // private token:string | undefined;
 
   constructor(private http:HttpClient) { 
 
