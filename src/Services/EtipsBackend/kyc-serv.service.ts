@@ -33,6 +33,7 @@ export class KycServService {
     
     return this.http.post(this.endPoint + "/docs/", body, {headers})
   }
+  
 
   performAWSLiveness(customerId:any, token:any){
     const headers = new HttpHeaders()
