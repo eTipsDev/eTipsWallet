@@ -14,16 +14,7 @@ export class KycServService {
   // private token:string | undefined;
 
   constructor(private http:HttpClient) { 
-    // this.realtime.mGetCustomToken().then((data:any) => {
-      
-    //   if(data)
-    //   {
-    //     this.token = data
-    //     console.log(this.token);
-    //   }
-      
-  
-    // });
+
   }
 
   registerCustomer(body:any, token:any):Observable<any>{
