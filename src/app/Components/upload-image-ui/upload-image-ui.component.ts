@@ -206,6 +206,7 @@ ngOnInit(): void {
     completionUrl:''
   }
 
+  
   performLiveness(JWT_Token:any){
     this.loading = true;
     this.kycService.performAWSLiveness(this.user_kyc.customerId, JWT_Token).pipe(finalize(() => {
