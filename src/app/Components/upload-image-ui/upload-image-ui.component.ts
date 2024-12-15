@@ -213,12 +213,7 @@ ngOnInit(): void {
     })
   ).subscribe({
         next: (response:any) => {
-          // this.products = product,
-
-          // this.firebase.kycComplete({uploadedDoc:true}).then((data) => {
-          //   alert("updated ")
-            
-          // })
+  
           this.awsLiveness.documentId = response.result.documentId
           this.awsLiveness.awsFaceLivenessSessionId = response.result.awsFaceLivenessSessionId
           this.awsLiveness.completionUrl = JSON.parse(response.result.extraInfo).completionUrl
