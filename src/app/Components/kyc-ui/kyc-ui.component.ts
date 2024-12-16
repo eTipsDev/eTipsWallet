@@ -57,6 +57,7 @@ export class KycUIComponent implements OnInit{
       state: ''
     },
     customerId:'',
+    wallet:"",
     passedAWSLiveness: false
   };
 
@@ -85,26 +86,27 @@ ngOnInit(): void {
   performKYC(form: any){
     // if (form.valid) {
 
-      alert("This will perform KYC")
+      if(confirm("Are you sure that the detaisl provided are correct?")){
+          let userID = this.user_kyc.userDetails.idNumber
 
-      let userID = this.user_kyc.userDetails.idNumber
-
-      this.user_kyc.userDetails.idNumber = ''
-      this.firebase.uploadKYC(this.user_kyc).then((data) => {
-      this.user_kyc.userDetails.idNumber = userID
-      // console.log('>> ', this.realtime.mGetCustomToken());
+        this.user_kyc.userDetails.idNumber = ''
+        this.firebase.uploadKYC(this.user_kyc).then((data) => {
+        this.user_kyc.userDetails.idNumber = userID
+        // console.log('>> ', this.realtime.mGetCustomToken());
+        
+        this.realtime.mGetCustomToken().then((JWT_Token:any) => {
+        
+          if(JWT_Token)
+          {
+            this.UploadToBackend(JWT_Token);
+          }
+          
+          
+        });
+          
+        });
+      }
       
-      this.realtime.mGetCustomToken().then((JWT_Token:any) => {
-      
-        if(JWT_Token)
-        {
-          this.UploadToBackend(JWT_Token);
-        }
-        
-        
-      });
-        
-      });
       
       
     // }
@@ -140,11 +142,11 @@ ngOnInit(): void {
   ).subscribe({
         next: (response) => {
           this.firebase.kycComplete({customerRegister:true, customerId:response.timestamp}).then((data) => {
-            alert("updated ")
+            alert("Details uploaded successfully, now upload your ID document and a selfie ")
             // console.log(data);
             
           })
-          console.log(response);
+          // console.log(response);
           this.route.navigate(['/upload-documents'])
         },
         error: (err) => {

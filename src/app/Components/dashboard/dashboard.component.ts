@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtime-db.service';
-import { log } from 'console';
-
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,42 +23,47 @@ export class DashboardComponent implements OnInit{
   visible:boolean = true
   ngOnInit(): void {
 
-    // setTimeout(() => {
-    // const ctx:any = document.getElementById('myChart');
-
-    //     new Chart(ctx, {
-    //       type: 'bar',
-    //       data: {
-    //         labels: ['Jan', '', 'Mar', '', 'May', ''],
-    //         datasets: [{
-    //           label: 'Tips Review',
-    //           data: [12, 19, 3, 5, 2, 3],
-    //           borderWidth: 1,
-    //           backgroundColor: 'orange',
-    //         }]
-    //       },
-    //       options: {
-    //         scales: {
-    //           y: {
-    //             beginAtZero: true
-    //           }
-    //         }
-    //       }
-    //     });
-    //     this.visible = false
-    // },  2000)
-
-    // console.log(this.userData);
-    
-    setTimeout(()=> {
+ 
+    // setTimeout(()=> {
       this.realtime.getLoggedUserDetails().then((data) => {
         if(data){
           this.userData = data
+          console.log(data);
+          
         }
-        
+        // this.generateChart();
         this.loading = false
       });
-    },100)
+    // },100)
+  }
+
+
+  generateChart(){
+       setTimeout(() => {
+    const ctx:any = window.document.getElementById('myChart');
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Jan', '', 'Mar', '', 'May', ''],
+            datasets: [{
+              label: 'Tips Review',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1,
+              backgroundColor: 'orange',
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+        this.visible = false
+    },  2000)
+    
   }
 
 }

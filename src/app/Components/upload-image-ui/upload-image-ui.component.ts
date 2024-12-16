@@ -57,6 +57,7 @@ export class UploadImageUIComponent  implements OnInit{
       state: ''
     },
     customerId:"",
+    wallet:"",
     passedAWSLiveness: false
   };
 
@@ -81,6 +82,7 @@ ngOnInit(): void {
     },100)
   }
   uploaded = "/assets/images/ic-round-upload-file.svg";
+  uploaded_ii = "/assets/images/ic-round-upload-file.svg";
 
   imageID = "../assets/images/gallery-2.png";
   imagePhoto = "../assets/images/gallery-2.png";
@@ -109,7 +111,7 @@ ngOnInit(): void {
      this.imagePhoto = event.target.result
     }
 
-    this.uploaded = "/assets/images/pablita-big-blue-tick.gif";
+    this.uploaded_ii = "/assets/images/pablita-big-blue-tick.gif";
    reader.readAsDataURL(selectedFile);
   }
 
@@ -123,8 +125,6 @@ ngOnInit(): void {
 
   performKYC(form: any){
     // if (form.valid) {
-
-      alert("This will perform KYC")
 
       // let userID = this.user_kyc.userDetails.idNumber
 
@@ -177,7 +177,7 @@ ngOnInit(): void {
           // this.products = product,
 
           this.firebase.kycComplete({uploadedDoc:true}).then((data) => {
-            alert("updated ")
+            alert("Documents uploaded successfully ")
             
           })
          

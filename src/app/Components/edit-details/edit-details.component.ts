@@ -57,6 +57,7 @@ export class EditDetailsComponent  implements OnInit{
       state: ''
     },
     passedAWSLiveness: false,
+    wallet:"",
     customerId: ''
   };
 

@@ -28,6 +28,7 @@ export interface KYC {
     "line3": string, // not required, can be empty string
     "state": string //province
   },
-  "customerId":string
+  "customerId":string,
+  "wallet":string
   passedAWSLiveness:boolean
 }

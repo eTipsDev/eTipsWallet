@@ -106,6 +106,9 @@ export class SignUpDetailsComponent {
     if(this.CurrentPage > 0){
       this.CurrentPage -= 1
     }
+    else{
+      this.router.navigate(["sign-in"])
+    }
     
   }
 }

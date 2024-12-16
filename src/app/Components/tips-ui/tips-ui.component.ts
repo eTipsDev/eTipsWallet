@@ -5,6 +5,8 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
 import { KYC } from '../../../Interfaces/kyc';
 import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtime-db.service';
+import { WalletService } from '../../../Services/Wallet/wallet.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-tips-ui',
@@ -13,7 +15,9 @@ import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtim
 })
 export class TipsUIComponent implements OnInit{
 
-  constructor(private firebase:RealtimeDBService,){
+  constructor(private firebase:RealtimeDBService,  
+    private realtime:RealtimeDBService,
+    private walletServ:WalletService){
 
   }
 
@@ -48,8 +52,17 @@ export class TipsUIComponent implements OnInit{
       state: ''
     },
     passedAWSLiveness: false,
+    wallet:"",
     customerId: ''
   };
+
+  wallet: any = {
+    currentBalance: 0,
+    availableBalance: 0,
+    reservations: 0,
+    status: "ACTIVE",
+    currency: "ZAR",
+}
   
   ngOnInit(): void {
     setTimeout(() => {
@@ -58,27 +71,50 @@ export class TipsUIComponent implements OnInit{
         if(data){
           
           this.user_kyc = data
-          // this.isKYCPerformed = data.kyc;
-          // this.user_kyc.userDetails.firstName = data.firstName;
-          // this.user_kyc.userDetails.firstName = data.lastName;
-          // this.user_kyc.userDetails.email = data.email;
-          // this.user_kyc.userDetails.mobileNumber = data.mobileNumber;
-          // this.user_kyc.userDetails.work = data.work;
 
-          // this.user_kyc.BankDetails = data.BankDetails;
-          // this.user_kyc.address = data.address;
-          // this.user_kyc.BankDetails.account_type = data.account_type;
-          // this.user_kyc.BankDetails.account_number = data.account_number;
-          // this.user_kyc.BankDetails.branch = data.branch;
-          // this.user_kyc.BankDetails.bank = data.bank;
-          console.log(this.user_kyc);
+          this.getUserWallet()
         }
-        console.log("yess");
-        
+
         this.loading = false;
       });
       this.loading = false
     }, 2000)
+  }
+
+  getUserWallet(){
+
+    this.realtime.mGetCustomToken().then((JWT_Token:any) => {
+      
+      if(JWT_Token)
+      {
+        this.walletServ.getWallet(this.user_kyc.customerId, this.user_kyc.wallet, JWT_Token).pipe(finalize(() => {
+          this.loading = false;
+        })
+      ).subscribe({
+            next: (response) => {
+              this.wallet = response.result
+              // console.log(response);
+              // this.route.navigate(['/upload-documents'])
+            },
+            error: (err) => {
+              if(err.status == 401) { 
+    
+              }
+              else { 
+    
+              }
+    
+              alert("Failed KYC")
+              console.log(err);
+              
+              // this.blLoadComplete = false
+            },
+          })
+      }
+      
+      
+    });
+   
   }
 
 }

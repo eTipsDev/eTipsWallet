@@ -40,7 +40,7 @@ export class RealtimeDBService {
     }
   }
 
-  async kycComplete(customer:any){
+  async kycComplete(data:any){
 
     const user = this.mGetLoggedInUser().uid;
     
@@ -48,7 +48,7 @@ export class RealtimeDBService {
     if(user){
       return await update(
         ref(this.GetRealtimeInstance(), 'users/' + user), 
-        customer
+        data
       );
     }
   }
