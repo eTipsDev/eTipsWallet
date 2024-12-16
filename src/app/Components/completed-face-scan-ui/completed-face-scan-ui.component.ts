@@ -37,6 +37,9 @@ export class CompletedFaceScanUiComponent implements OnInit {
 
             this.updateAwsLiveness(this.LivenessDetails.token);
           }
+          else{
+            alert("missing values")
+          }
         // }
       // }).catch(err => {
       //   alert("No token")
