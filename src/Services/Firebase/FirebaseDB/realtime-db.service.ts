@@ -67,23 +67,28 @@ export class RealtimeDBService {
 
   async mGetCustomToken():Promise<any>{
 
+    
+    // if(Object.keys(userFound).length){
+    //   console.log(userFound);
+      
+    //   userFound!.getIdToken().then((data:any) => {
+
+    //     userToken = data
+      
+    //  }).catch((error:any) => {
+    //    console.error(error);
+    //  });
+    // }
+
     let userToken = null;
 
-    let userFound = await this.mGetLoggedInUser()
+    await this.mGetLoggedInUser()!.getIdToken().then((data:any) => {
 
-    if(Object.keys(userFound).length){
-      console.log(userFound);
-      
-      userFound!.getIdToken().then((data:any) => {
-
-        userToken = data
-      
-     }).catch((error:any) => {
-       console.error(error);
-     });
-    }
-
-   
+       userToken = data
+     
+    }).catch((error:any) => {
+      console.error(error);
+    });
 
      return userToken
 
