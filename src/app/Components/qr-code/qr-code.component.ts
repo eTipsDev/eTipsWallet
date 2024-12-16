@@ -103,7 +103,7 @@ export class QrCodeComponent implements OnInit {
         {
           this.walletServ.getQRcode(this.user_kyc.customerId, this.user_kyc.wallet, JWT_Token).pipe(finalize(() => {
             this.loading = false;
-            
+            this.visible = false;
           })
         ).subscribe({
               next: (response) => {
@@ -127,7 +127,7 @@ export class QrCodeComponent implements OnInit {
       
                 }
       
-                alert("Failed KYC")
+                alert("Failed to get QR code")
                 console.log(err);
                 
                 // this.blLoadComplete = false
