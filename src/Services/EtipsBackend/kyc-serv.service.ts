@@ -43,11 +43,11 @@ export class KycServService {
     return this.http.get(this.endPoint + `/liveness?customerId=${customerId}`, {headers})
   }
 
-  updateAWSLiveness(customerId:any, token:any){
+  updateAWSLiveness(data:any, token:any){
     const headers = new HttpHeaders()
     .append('Authorization', 'Bearer ' + token)
     .append('Accept', '*/*')
 
-    return this.http.put(this.endPoint + `/liveness?customerId=${customerId}`, {headers})
+    return this.http.put(this.endPoint + `/liveness`, data, {headers})
   }
 }
