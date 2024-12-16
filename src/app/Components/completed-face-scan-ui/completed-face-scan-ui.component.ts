@@ -4,6 +4,7 @@ import { SessionStorageService } from '../../../Services/SessionStorage/session-
 import { RealtimeDBService } from '../../../Services/Firebase/FirebaseDB/realtime-db.service';
 import { finalize } from 'rxjs/operators';
 import { log } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-completed-face-scan-ui',
@@ -15,6 +16,8 @@ export class CompletedFaceScanUiComponent implements OnInit {
   constructor(private kyc:KycServService, 
     private sessionStorage:SessionStorageService, 
    private realtime:RealtimeDBService,
+   
+       private route:Router,
    private firebase:RealtimeDBService){}
 
    loading:boolean = true;
@@ -24,23 +27,22 @@ export class CompletedFaceScanUiComponent implements OnInit {
   ngOnInit(): void {
     
     setTimeout(() => {
+      this.LivenessDetails = this.sessionStorage.retrieveToWebStorage()
 
-      this.realtime.mGetCustomToken().then((JWT_Token:any) => {
+      // this.realtime.mGetCustomToken().then((JWT_Token:any) => {
       
-        if(JWT_Token)
-        {
-          this.LivenessDetails = this.sessionStorage.retrieveToWebStorage()
-
+        // if(JWT_Token)
+        // {
           if(this.LivenessDetails.awsFaceLivenessSessionId){
 
-            this.updateAwsLiveness(JWT_Token);
+            this.updateAwsLiveness(this.LivenessDetails.token);
           }
-        }
-      }).catch(err => {
-        alert("No token")
-        console.log(err);
+        // }
+      // }).catch(err => {
+      //   alert("No token")
+      //   console.log(err);
         
-      });
+      // });
     }, 3000)
   }
 
@@ -54,6 +56,7 @@ export class CompletedFaceScanUiComponent implements OnInit {
   
           this.firebase.kycComplete({passedAWSLiveness:true, kyc: true}).then((data) => {
             alert("updated ")
+            this.route.navigate(['/dashboard'])
           })
           
         },

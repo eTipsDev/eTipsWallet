@@ -221,6 +221,7 @@ ngOnInit(): void {
           this.awsLiveness.completionUrl = JSON.parse(response.result.extraInfo).completionUrl
 
           this.sessionStorage.saveToWebStorage({
+            token: JWT_Token,
             documentId:this.awsLiveness.documentId,
             awsLivenessSessionId:this.awsLiveness.awsFaceLivenessSessionId,
             customerId: this.user_kyc.customerId
