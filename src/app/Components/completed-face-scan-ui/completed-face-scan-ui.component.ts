@@ -33,13 +33,13 @@ export class CompletedFaceScanUiComponent implements OnInit {
       
         // if(JWT_Token)
         // {
-          if(this.LivenessDetails.awsFaceLivenessSessionId){
+          if(this.LivenessDetails.awsLivenessSessionId){
 
             this.updateAwsLiveness(this.LivenessDetails.token);
           }
           else{
             alert("missing values")
-            console.log(this.LivenessDetails);
+            // console.log(this.LivenessDetails);
             
           }
         // }
@@ -66,9 +66,9 @@ export class CompletedFaceScanUiComponent implements OnInit {
           
         },
         error: (err) => {
-          if(err.status == 401)
+          if(err.status == 422)
           {
-           
+            alert("Sorry we could not verify your identity")
           }
           else{
            
