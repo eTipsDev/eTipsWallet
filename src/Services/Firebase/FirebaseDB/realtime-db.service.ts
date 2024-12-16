@@ -69,13 +69,21 @@ export class RealtimeDBService {
 
     let userToken = null;
 
-    await this.mGetLoggedInUser()!.getIdToken().then((data:any) => {
+    let userFound = await this.mGetLoggedInUser()
 
-       userToken = data
-     
-    }).catch((error:any) => {
-      console.error(error);
-    });
+    if(Object.keys(userFound).length){
+      console.log(userFound);
+      
+      userFound!.getIdToken().then((data:any) => {
+
+        userToken = data
+      
+     }).catch((error:any) => {
+       console.error(error);
+     });
+    }
+
+   
 
      return userToken
 

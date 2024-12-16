@@ -35,6 +35,7 @@ import { BottomNavComponent } from './Components/bottom-nav/bottom-nav.component
 import { EditDetailsComponent } from './Components/edit-details/edit-details.component';
 import { SecurityPrivacyComponent } from './Components/security-privacy/security-privacy.component';
 import { UploadImageUIComponent } from './Components/upload-image-ui/upload-image-ui.component';
+import { CompletedFaceScanUiComponent } from './Components/completed-face-scan-ui/completed-face-scan-ui.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { UploadImageUIComponent } from './Components/upload-image-ui/upload-imag
     BottomNavComponent,
     EditDetailsComponent,
     SecurityPrivacyComponent,
-    UploadImageUIComponent
+    UploadImageUIComponent,
+    CompletedFaceScanUiComponent
   ],
   imports: [
     BrowserModule,

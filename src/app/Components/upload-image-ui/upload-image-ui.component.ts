@@ -8,6 +8,7 @@ import { log } from 'console';
 import { finalize } from 'rxjs';
 import { Router } from '@angular/router';
 import { BackLocationService } from '../../../Services/BackLocation/back-location.service';
+import { SessionStorageService } from '../../../Services/SessionStorage/session-storage.service';
 
 @Component({
   selector: 'app-upload-image-ui',
@@ -22,7 +23,8 @@ export class UploadImageUIComponent  implements OnInit{
     private kycService:KycServService,
     private route:Router,
     private realtime:RealtimeDBService,
-    private back:BackLocationService
+    private back:BackLocationService,
+    private sessionStorage:SessionStorageService
   ){}
 
   user_kyc:KYC = {
@@ -70,7 +72,6 @@ ngOnInit(): void {
           // this.user_kyc.userDetails.lastName = data.userDetails.lastName
           // this.user_kyc.userDetails.mobileNumber = data.userDetails.mobileNumber
           this.user_kyc = data
-          console.log(data);
           
           this.user_kyc.BankDetails.account_holder = data.userDetails.firstName + " " + data.userDetails.lastName;
         }
@@ -81,8 +82,8 @@ ngOnInit(): void {
   }
   uploaded = "/assets/images/ic-round-upload-file.svg";
 
-  imageID = "..//assets/images/gallery-2.png";
-  imagePhoto = "..//assets/images/gallery-2.png";
+  imageID = "../assets/images/gallery-2.png";
+  imagePhoto = "../assets/images/gallery-2.png";
 
   async loadID(event:any){
     const selectedFile = event.target.files[0];
@@ -206,7 +207,7 @@ ngOnInit(): void {
     completionUrl:''
   }
 
-  
+
   performLiveness(JWT_Token:any){
     this.loading = true;
     this.kycService.performAWSLiveness(this.user_kyc.customerId, JWT_Token).pipe(finalize(() => {
@@ -219,9 +220,15 @@ ngOnInit(): void {
           this.awsLiveness.awsFaceLivenessSessionId = response.result.awsFaceLivenessSessionId
           this.awsLiveness.completionUrl = JSON.parse(response.result.extraInfo).completionUrl
 
-          this.firebase.kycComplete(this.awsLiveness).then((data) => {
-            alert("updated ")
+          this.sessionStorage.saveToWebStorage({
+            documentId:this.awsLiveness.documentId,
+            awsLivenessSessionId:this.awsLiveness.awsFaceLivenessSessionId,
+            customerId: this.user_kyc.customerId
           })
+
+          // this.firebase.kycComplete(this.awsLiveness).then((data) => {
+          //   alert("updated ")
+          // })
           
         },
         error: (err) => {
