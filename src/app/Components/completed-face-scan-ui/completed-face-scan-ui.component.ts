@@ -39,6 +39,8 @@ export class CompletedFaceScanUiComponent implements OnInit {
           }
           else{
             alert("missing values")
+            console.log(this.LivenessDetails);
+            
           }
         // }
       // }).catch(err => {
