@@ -116,6 +116,7 @@ ngOnInit(): void {
    reader.readAsDataURL(selectedFile);
   }
 
+  
   goBack(){
     this.back.goBack()
   }
