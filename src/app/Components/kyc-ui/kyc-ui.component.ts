@@ -58,7 +58,8 @@ export class KycUIComponent implements OnInit{
     },
     customerId:'',
     wallet:"",
-    passedAWSLiveness: false
+    passedAWSLiveness: false,
+    kyc:false
   };
 
 ngOnInit(): void {

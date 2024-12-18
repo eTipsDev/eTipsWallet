@@ -58,28 +58,29 @@ export class UploadImageUIComponent  implements OnInit{
     },
     customerId:"",
     wallet:"",
-    passedAWSLiveness: false
+    passedAWSLiveness: false,
+    kyc:false
   };
 
 
 
 ngOnInit(): void {
-    setTimeout(()=>{
+    // setTimeout(()=>{
       
-      this.firebase.getLoggedUserDetails().then((data) => {
+    //   this.firebase.getLoggedUserDetails().then((data) => {
 
-        if(data){
-          // this.user_kyc.userDetails.firstName = data.userDetails.firstName;
-          // this.user_kyc.userDetails.lastName = data.userDetails.lastName
-          // this.user_kyc.userDetails.mobileNumber = data.userDetails.mobileNumber
-          this.user_kyc = data
+    //     if(data){
+    //       // this.user_kyc.userDetails.firstName = data.userDetails.firstName;
+    //       // this.user_kyc.userDetails.lastName = data.userDetails.lastName
+    //       // this.user_kyc.userDetails.mobileNumber = data.userDetails.mobileNumber
+    //       this.user_kyc = data
           
-          this.user_kyc.BankDetails.account_holder = data.userDetails.firstName + " " + data.userDetails.lastName;
-        }
+    //       this.user_kyc.BankDetails.account_holder = data.userDetails.firstName + " " + data.userDetails.lastName;
+    //     }
 
-        this.loading = false;
-      });
-    },100)
+    //     this.loading = false;
+    //   });
+    // },100)
   }
   uploaded = "/assets/images/ic-round-upload-file.svg";
   uploaded_ii = "/assets/images/ic-round-upload-file.svg";
@@ -204,7 +205,7 @@ ngOnInit(): void {
   awsLiveness:any = {
     documentId: '',
     awsFaceLivenessSessionId:'',
-    completionUrl:''
+    completionUrl:true
   }
 
 
@@ -227,6 +228,7 @@ ngOnInit(): void {
             customerId: this.user_kyc.customerId
           })
 
+          
           // this.firebase.kycComplete(this.awsLiveness).then((data) => {
           //   alert("updated ")
           // })

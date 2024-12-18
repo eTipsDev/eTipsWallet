@@ -14,7 +14,7 @@ align-items: center; text-align: center;">
       width: 60px;" 
       src="../../../assets/images/Bearded-man-mascot-logo1_generated.jpg" />
       
-      <div routerLink="/qr-code" class="small-icons">
+      <div *ngIf="this.userData.kyc" routerLink="/qr-code" class="small-icons">
         <img  style="height: 15px;" src="../../../assets/images/qr-code.png"/>
         <label>Qr code</label>
       </div>
@@ -27,7 +27,7 @@ align-items: center; text-align: center;">
         <!-- <label  style="font-size: 12px;">&#64;LethaboM</label> -->
       </div>
 
-      <div routerLink="/tips" class="small-icons">
+      <div *ngIf="this.userData.kyc" routerLink="/tips" class="small-icons">
         <img  style="height: 15px;" src="../../../assets/images/coin.png"/>
         <label>Tips</label>
       </div>

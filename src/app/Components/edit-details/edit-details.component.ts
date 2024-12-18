@@ -58,7 +58,8 @@ export class EditDetailsComponent  implements OnInit{
     },
     passedAWSLiveness: false,
     wallet:"",
-    customerId: ''
+    customerId: '',
+    kyc:false
   };
 
 ngOnInit(): void {

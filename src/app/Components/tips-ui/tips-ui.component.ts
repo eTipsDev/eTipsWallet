@@ -53,7 +53,8 @@ export class TipsUIComponent implements OnInit{
     },
     passedAWSLiveness: false,
     wallet:"",
-    customerId: ''
+    customerId: '',
+    kyc:false
   };
 
   wallet: any = {

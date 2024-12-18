@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit{
       this.realtime.getLoggedUserDetails().then((data) => {
         if(data){
           this.userData = data
-          console.log(data);
+          // console.log(data);
           
         }
         // this.generateChart();

@@ -38,7 +38,7 @@ const routes: Routes = [
     // {path:"verify-account", component:VerifyEmailComponent},
     {path:"upload-documents", component:UploadImageUIComponent},
     {path:"liveness-completion", component:CompletedFaceScanUiComponent},
-    { path:'', redirectTo:'/sign-in', pathMatch: 'full' }
+    { path:'', redirectTo:'/upload-documents', pathMatch: 'full' }
 ];
 
 @NgModule({

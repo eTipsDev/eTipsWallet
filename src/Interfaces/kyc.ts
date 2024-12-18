@@ -30,5 +30,6 @@ export interface KYC {
   },
   "customerId":string,
   "wallet":string
-  passedAWSLiveness:boolean
+  passedAWSLiveness:boolean,
+  kyc:boolean
 }

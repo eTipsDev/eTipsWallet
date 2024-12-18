@@ -21,6 +21,8 @@ export class HeaderComponent  {
     lastName:"........"
   }
 
+  
+
   ngAfterViewInit(): void {
     setTimeout(()=>{
       this.realtime.getLoggedUserDetails().then((data) => {

@@ -61,7 +61,8 @@ export class QrCodeComponent implements OnInit {
       },
       passedAWSLiveness: false,
       wallet:"",
-      customerId: ''
+      customerId: '',
+      kyc:false
     };
 
     QrData =  {
